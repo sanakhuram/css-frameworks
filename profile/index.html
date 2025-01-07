@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <script type="module" src="/src/app.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+  </head>
+
+  <body>
+    <div class="logoContainer">
+      <a href="/" class="logoWrapper">
+        <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+      </a>
+    </div>
+    <div class="pageContainer">
+      <header class="headerContainer">
+        <div class="loginContainer">
+          <a href="/profile/">My Profile</a>
+          <a href="/auth/login/">Login</a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+        <div class="postButton">
+          <a href="/post/create/" class="postLink">Create Post</a>
+        </div>
+      </header>
+      <div class="profile-container">
+        <a href="/" class="back-link">← Home</a>
+        <h1>My Profile</h1>
+        <div class="profile-card">
+          <img
+            id="profileAvatar"
+            src="../images/default-avatar.png"
+            alt="User avatar"
+          />
+          <h2 id="profileName">Your Name</h2>
+          <p id="profileBio">Bio goes here...</p>
+
+          <div class="profile-stats">
+            <span id="postCount">Posts: 0</span>
+            <button type="button" id="followerCount" class="stat-button">
+              Followers: 0
+            </button>
+
+            <button type="button" id="followingCount" class="stat-button">
+              Following: 0
+            </button>
+          </div>
+
+          <form id="updateProfileForm" class="profile-form">
+            <label for="avatar">Avatar:</label>
+            <input
+              type="text"
+              id="avatar"
+              name="avatar"
+              placeholder="Image URL"
+            />
+
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+
+            <label for="bio">Bio:</label>
+            <textarea
+              id="bio"
+              name="bio"
+              placeholder="Tell us about yourself..."
+            ></textarea>
+
+            <button type="submit">Update Profile</button>
+          </form>
+
+          <h2>Posts</h2>
+          <div id="postContainer" class="posts-container"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

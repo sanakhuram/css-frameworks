@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <script type="module" src="/src/app.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+  </head>
+
+  <body>
+    <div class="logoContainer">
+      <a href="/" class="logoWrapper">
+        <img src="/images/logo2.gif" alt="Website Logo" class="logo-trim" />
+      </a>
+    </div>
+    <div class="pageContainer">
+      <header class="headerContainer">
+        <div class="loginContainer">
+          <a href="/profile/">My Profile</a>
+          <a href="/auth/login/">Login</a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+        <div class="postButton">
+          <a href="/post/create/" class="postLink">Create Post</a>
+        </div>
+      </header>
+      <a href="/" class="backHomeLink">Back to Home</a>
+      <main>
+        <div class="profile-container">
+          <div id="authorContainer">
+            <div id="authorDetails">
+              <img
+                id="authorAvatar"
+                src="https://via.placeholder.com/150"
+                alt="User's avatar image"
+              />
+              <h2 id="authorName">Unknown User</h2>
+              <p id="authorBio">No bio available</p>
+              <button id="followButton">Follow</button>
+            </div>
+            <div id="userStats">
+              <div class="stat">
+                <strong id="postCount">0</strong>
+                <span>Posts</span>
+              </div>
+              <div class="stat">
+                <strong id="followerCount">0</strong>
+                <span>Followers</span>
+              </div>
+              <div class="stat">
+                <strong id="followingCount">0</strong>
+                <span>Following</span>
+              </div>
+            </div>
+          </div>
+          <h1>Posts</h1>
+          <div id="authorPosts" class="posts-container"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Page </title>
+  <script type="module" src="/src/app.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+</head>
+<body>
+  <div class="pageContainer">
+    <div class="logoContainer">
+      <a href="/" class="logoWrapper">
+        <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+      </a>
+    </div>
+    <header class="headerContainer">
+      <div class="loginContainer">
+        <a href="/profile/">My Profile</a>
+        <a href="/auth/login/">Login</a>
+        <button id="logoutBtn" type="button">Logout</button>
+      </div>
+      <div class="postButton">
+        <a href="/post/create/" class="postLink">Create Post</a>
+      </div>
+    </header>
+    <main>
+      <section id="singlePostContainer" class="postContainer">
+        <p>Loading post...</p>
+      </section>
+    </main>
+  </div>
+</html>

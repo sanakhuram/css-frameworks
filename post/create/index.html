@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post</title>
+
+    <script type="module" src="../../src/app.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+  </head>
+
+  <body>
+    <div class="logoContainer">
+      <a href="/" class="logoWrapper">
+        <img src="/images/logo2.gif" alt="Website Logo" class="logo-trim" />
+      </a>
+    </div>
+    <div class="pageContainer">
+      <header class="headerContainer">
+        <div class="loginContainer">
+          <a href="/profile/">My Profile</a>
+          <a href="/auth/login/">Login</a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </header>
+      <h1>Create Post</h1>
+      <main>
+        <form id="createPostForm" class="postFormContainer">
+          <label for="postTitleForm">Post Title</label>
+          <input
+            type="text"
+            id="postTitleForm"
+            name="title"
+            placeholder="Enter post title"
+            aria-label="Post title"
+            required
+          />
+
+          <label for="postContentForm">Post Content</label>
+          <textarea
+            id="postContentForm"
+            name="content"
+            placeholder="Enter post content"
+            aria-label="Post content"
+            required
+          ></textarea>
+
+          <label for="imageURL">Image URL</label>
+          <input
+            type="text"
+            id="imageURL"
+            name="imageUrl"
+            placeholder="Enter image URL"
+            aria-label="Image URL"
+            required
+          />
+
+          <label for="imageAltText">Image Alt Text</label>
+          <input
+            type="text"
+            id="imageAltText"
+            name="imageAlt"
+            placeholder="Enter image alt text"
+            aria-label="Image alternative text"
+            required
+          />
+
+          <label for="tagsInput">Tags (separate by commas)</label>
+          <input
+            type="text"
+            id="tagsInput"
+            name="tags"
+            placeholder="Enter tags"
+            aria-label="Tags for the post"
+            required
+          />
+
+          <button type="submit">Publish</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Post</title>
+  <script type="module" src="../../src/app.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+</head>
+
+<body>
+  <div class="logoContainer">
+    <a href="/" class="logoWrapper">
+      <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+    </a>
+  </div>
+  <div class="pageContainer">
+    <header class="headerContainer">
+      <div class="loginContainer">
+        <a href="/profile/">My Profile</a>
+        <a href="/auth/login/">Login</a>
+        <button id="logoutBtn">Logout</button>
+      </div>
+      <div class="postButton">
+        <a href="/post/create/" class="postLink">Create Post</a>
+      </div>
+    </header>
+    <h1>Edit Post</h1>
+    <main>
+      <form id="editPostForm" class="postFormContainer">
+        <label for="editPostTitleForm">Post Title</label>
+        <input type="text" id="editPostTitleForm" name="title" placeholder="Enter post title" required />
+
+        <label for="editPostContentForm">Post Content</label>
+        <textarea id="editPostContentForm" name="content" placeholder="Enter post content" required></textarea>
+
+        <label for="editImageURL">Image URL</label>
+        <input type="text" id="editImageURL" name="imageUrl" placeholder="Enter image URL" required />
+
+        <label for="editImageAltText">Image Alt Text</label>
+        <input type="text" id="editImageAltText" name="imageAlt" placeholder="Enter image alt text" required />
+
+        <label for="editTagsInput">Tags (separate by commas)</label>
+        <input type="text" id="editTagsInput" name="tags" placeholder="Enter tags" required />
+
+        <button type="submit">Update Post</button>
+      </form>
+    </main>
+</body>
+
+</html>

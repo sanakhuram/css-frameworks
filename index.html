@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="/src/css/style.css" type="text/css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+  </head>
+
+  <body>
+    <div class="logoContainer">
+      <a href="/" class="logoWrapper" aria-label="Home">
+        <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+      </a>
+    </div>
+    <div class="pageContainer">
+      <header class="headerContainer">
+        <nav class="loginContainer">
+          <a href="/" aria-label="Home">Home</a>
+          <a href="/profile/" aria-label="My Profile">My Profile</a>
+          <a href="/auth/login/" aria-label="Login">Login</a>
+          <button id="logoutBtn" aria-label="Logout">Logout</button>
+        </nav>
+        <div class="postButton">
+          <a href="/post/create/" class="postLink" aria-label="Create Post"
+            >Create Post</a
+          >
+        </div>
+      </header>
+      <main>
+        <section id="sortOptions" class="sortContainer">
+          <label for="sortOrder">Order:</label>
+          <select id="sortOrder" class="sortSelect">
+            <option value="desc">Newest</option>
+            <option value="asc">Oldest</option>
+          </select>
+          <button id="applySort" class="sortButton">Apply</button>
+        </section>
+
+        <section id="searchSection" class="searchContainer">
+          <label for="searchQuery">Search Posts:</label>
+          <input
+            id="searchQuery"
+            class="searchInput"
+            type="text"
+            placeholder="Search by title or body..."
+          />
+          <button id="searchButton" class="searchButton">Search</button>
+        </section>
+
+        <section id="postFeed" class="feedContainer postGrid"></section>
+
+        <nav
+          id="pagination"
+          class="pagination-controls"
+          aria-label="Pagination"
+        ></nav>
+      </main>
+
+      <footer>
+        <div>&copy; 2024 All rights reserved for JS2 CA Sana Khuram.</div>
+      </footer>
+    </div>
+  </body>
+</html>

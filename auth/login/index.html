@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <script type="module" src="/src/app.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+</head>
+
+<body>
+  <div class="logoContainer">
+    <a href="/" class="logoWrapper">
+      <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+    </a>
+  </div>
+  <div class="pageContainer">
+    <header class="headerContainer">
+      <div class="loginContainer">
+        <a href="/profile/">My Profile</a>
+        <a href="/auth/login/">Login</a>
+        <button id="logoutBtn">Logout</button>
+      </div>
+      <div class="postButton">
+        <a href="/post/create/" class="postLink">Create Post</a>
+      </div>
+    </header>
+    <div class="auth-Container">
+      <form name="login">
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required />
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+        </div>
+
+        <a href="/auth/register/">Register</a>
+        <button>Login</button>
+      </form>
+    </div>
+</body>
+
+</html>
