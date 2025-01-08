@@ -91,7 +91,28 @@
           <i class="fas fa-filter"></i> Apply
         </button>
       </section>
+        <!-- Search Section -->
+        <section class="flex flex-wrap gap-4 items-center mb-8">
+          <label for="searchQuery" class="font-semibold text-darkBlue">Search Posts:</label>
+          <input
+            id="searchQuery"
+            type="text"
+            placeholder="Search by title or body..."
+            class="border border-lightBlue rounded-md p-2 flex-grow"
+          />
+          <button
+            id="searchButton"
+            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed"
+          >
+            Search
+          </button>
+        </section>
 
+      <div id="spinner" class="hidden flex justify-center items-center">
+  <img src="/public/images/loader.png" alt="Loading..." class="animate-writing w-12 h-12" />
+</div>
+
+      
       <!-- Post Feed -->
       <section
         id="postFeed"

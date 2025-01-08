@@ -17,6 +17,15 @@ module.exports = {
         serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['Fira Code', 'Courier New', 'monospace'],
       },
+      keyframes: {
+        writing: {
+          '0%, 100%': { transform: 'translateX(0)' }, // Start and end position
+          '50%': { transform: 'translateX(10px)' },  // Move forward
+        },
+      },
+      animation: {
+        writing: 'writing 0.8s ease-in-out infinite', // Animation settings
+      },
     },
   },
   plugins: [],
