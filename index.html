@@ -79,7 +79,7 @@
         </label>
         <select
           id="sortOrder"
-          class="border border-lightBlue rounded-md p-2"
+          class="border border-lightBlue rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-red focus:border-red"
         >
           <option value="desc">Newest</option>
           <option value="asc">Oldest</option>
@@ -98,7 +98,7 @@
             id="searchQuery"
             type="text"
             placeholder="Search by title or body..."
-            class="border border-lightBlue rounded-md p-2 flex-grow"
+            class="border border-lightBlue rounded-md p-2 flex-grow focus:outline-none focus:ring-1 focus:ring-red focus:border-red"
           />
           <button
             id="searchButton"
@@ -108,7 +108,7 @@
           </button>
         </section>
 
-      <div id="spinner" class="hidden flex justify-center items-center">
+      <div id="spinner" class="hiddenflex justify-center items-center">
   <img src="/public/images/loader.png" alt="Loading..." class="animate-writing w-12 h-12" />
 </div>
 
