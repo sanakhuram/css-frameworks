@@ -37,30 +37,30 @@ export async function renderPosts(
       const postsHTML = postsData
         .map(
           (post) => `
-          <a href="/post/?id=${post.id}" class="block rounded-lg border border-gray-300 bg-white shadow-md overflow-hidden hover:shadow-lg transition">
-            <article id="post-${post.id}" class="p-4">
-              <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || "Untitled"}</h2>
-              <p class="text-sm text-gray-600 mt-2 line-clamp-2">
-                ${post.body || "No content available"}
-              </p>
+      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow hover:shadow-lg transition-all overflow-hidden">
+        <article id="post-${post.id}" class="p-4 h-full flex flex-col">
+          <div class="mb-4">
+            <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || 'Untitled'}</h2>
+            <p class="text-sm text-gray-600 mt-2 line-clamp-2">${post.body || 'No content available'}</p>
+          </div>
               <img
                 src="${
                   post.media?.url && isValidImage(post.media.url)
                     ? post.media.url
-                    : "/images/placeholder.jpg"
+                    : '/images/placeholder.jpg'
                 }"
-                alt="${post.media?.alt || "Post Image"}"
+                alt="${post.media?.alt || 'Post Image'}"
                 onerror="this.src='/images/placeholder.jpg';"
                 class="mt-4 w-full h-40 object-cover rounded-md"
               >
               <p class="mt-2 text-sm text-gray-500">
-                Tags: ${post.tags?.join(", ") || "No tags"}
+                Tags: ${post.tags?.join(', ') || 'No tags'}
               </p>
             </article>
           </a>
         `
         )
-        .join("");
+        .join('');
 
       postFeed.innerHTML = postsHTML;
 

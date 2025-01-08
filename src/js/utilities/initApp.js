@@ -12,7 +12,7 @@ import { renderPosts } from '../ui/post/renderPost.js';
 import { renderSinglePost } from '../ui/post/renderSinglePost.js';
 import { loadPostData, onUpdatePost } from '../ui/post/update.js';
 import { renderUserProfile } from '../ui/profile/userProfile.js';
-import { showSpinner, hideSpinner } from '../utilities/spinner.js'; // Import spinner functions
+import { showSpinner, hideSpinner } from '../utilities/spinner.js'; 
 
 /**
  * Utility function to safely attach event listeners.
@@ -29,7 +29,7 @@ function attachEventListener(selector, event, handler) {
 
 export async function initializeApp() {
   try {
-    // Show spinner while initializing
+
     showSpinner();
 
     attachEventListener("form[name='register']", 'submit', onRegister);
@@ -105,7 +105,6 @@ export async function initializeApp() {
       renderPosts(1, 'created', sortOrder).finally(() => hideSpinner());
     });
 
-    // Hide spinner after initialization
     hideSpinner();
   } catch (error) {
     console.error('Error initializing application:', error);
