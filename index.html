@@ -3,70 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Social Media App</title>
     <script type="module" src="/src/app.js"></script>
-    <link rel="stylesheet" href="/src/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/images/favicon-32x32.png"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    
   </head>
-
-  <body>
-    <div class="logoContainer">
-      <a href="/" class="logoWrapper" aria-label="Home">
-        <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+  <body class="bg-lightGray text-darkBlue font-sans">
+    <div class="flex justify-center mt-6">
+      <a href="/" class="block">
+        <img
+          src="/images/noroff-logo.png"
+          alt="Logo"
+          class="h-20 w-auto sm:h-15 md:h-18 lg:h-25"
+        />
       </a>
     </div>
-    <div class="pageContainer">
-      <header class="headerContainer">
-        <nav class="loginContainer">
-          <a href="/" aria-label="Home">Home</a>
-          <a href="/profile/" aria-label="My Profile">My Profile</a>
-          <a href="/auth/login/" aria-label="Login">Login</a>
-          <button id="logoutBtn" aria-label="Logout">Logout</button>
-        </nav>
-        <div class="postButton">
-          <a href="/post/create/" class="postLink" aria-label="Create Post"
-            >Create Post</a
-          >
-        </div>
-      </header>
-      <main>
-        <section id="sortOptions" class="sortContainer">
-          <label for="sortOrder">Order:</label>
-          <select id="sortOrder" class="sortSelect">
-            <option value="desc">Newest</option>
-            <option value="asc">Oldest</option>
-          </select>
-          <button id="applySort" class="sortButton">Apply</button>
-        </section>
-
-        <section id="searchSection" class="searchContainer">
-          <label for="searchQuery">Search Posts:</label>
-          <input
-            id="searchQuery"
-            class="searchInput"
-            type="text"
-            placeholder="Search by title or body..."
-          />
-          <button id="searchButton" class="searchButton">Search</button>
-        </section>
-
-        <section id="postFeed" class="feedContainer postGrid"></section>
-
-        <nav
-          id="pagination"
-          class="pagination-controls"
-          aria-label="Pagination"
-        ></nav>
-      </main>
-
-      <footer>
-        <div>&copy; 2024 All rights reserved for JS2 CA Sana Khuram.</div>
-      </footer>
+<header class="w-full bg-darkBlue text-lightGray shadow-lg">
+  <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+    <nav class="flex gap-6 text-sm md:text-base">
+      <a href="/" class="flex flex-col items-center gap-1 hover:text-lightBlue">
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-xs sm:text-sm md:block hidden">Home</span>
+      </a>
+      <a
+        href="/profile/"
+        class="flex flex-col items-center gap-1 hover:text-lightBlue"
+      >
+        <i class="fas fa-user text-lg"></i>
+        <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
+      </a>
+      <a
+        href="/auth/login/"
+        class="flex flex-col items-center gap-1 hover:text-lightBlue"
+      >
+        <i class="fas fa-sign-in-alt text-lg"></i>
+        <span class="text-xs sm:text-sm md:block hidden">Login</span>
+      </a>
+      <button
+        id="logoutBtn"
+        class="flex flex-col items-center gap-1 hover:text-lightBlue"
+      >
+        <i class="fas fa-sign-out-alt text-lg"></i>
+        <span class="text-xs sm:text-sm md:block hidden">Logout</span>
+      </button>
+    </nav>
+    <div>
+      <a
+        href="/post/create/"
+        class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
+      >
+        <i class="fas fa-pencil-alt"></i>
+        <span>Create Post</span>
+      </a>
     </div>
+  </div>
+</header>
+
+    <main class="mt-10 max-w-5xl mx-auto px-4">
+      <!-- Sorting Options -->
+      <section class="flex flex-wrap gap-4 items-center mb-8">
+        <label for="sortOrder" class="font-semibold text-darkBlue flex items-center gap-2">
+          <i class="fas fa-sort"></i> Order:
+        </label>
+        <select
+          id="sortOrder"
+          class="border border-lightBlue rounded-md p-2"
+        >
+          <option value="desc">Newest</option>
+          <option value="asc">Oldest</option>
+        </select>
+        <button
+          id="applySort"
+          class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
+        >
+          <i class="fas fa-filter"></i> Apply
+        </button>
+      </section>
+
+      <!-- Post Feed -->
+      <section
+        id="postFeed"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+      </section>
+      <nav
+        id="pagination"
+        class="pagination-controls"
+        aria-label="Pagination"
+      ></nav>
+    </main>
+
+    <!-- Back to Top Button -->
+    <a href="#top" id="backToTopBtn" title="back to top"
+      class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
+      aria-label="Back to Top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a></button>
+
+    <!-- Footer -->
+    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10">
+      <div class="max-w-5xl mx-auto text-center">
+        &copy; 2024 All rights reserved for JS2 CA Sana Khuram.
+      </div>
+    </footer>
   </body>
 </html>

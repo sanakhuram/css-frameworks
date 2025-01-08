@@ -2,7 +2,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'], 
+  content: ['./**/*.{html,js,ts}', '!./node_modules/**/*'],
   theme: {
     extend: {
       colors: {
@@ -13,8 +13,9 @@ module.exports = {
         darkRed: '#D90429', // Dark Red
       },
       fontFamily: {
-        sans: ['Poppins', 'Arial', 'sans-serif'], 
-        serif: ['Merriweather', 'Georgia', 'serif'],
+        sans: ['Inter', 'Roboto', 'Arial', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        mono: ['Fira Code', 'Courier New', 'monospace'],
       },
     },
   },

@@ -12,12 +12,17 @@ export async function renderPosts(
   page = 1,
   sort = "created",
   sortOrder = "desc",
-  query = "",
+  query = ""
 ) {
   const postFeed = document.getElementById("postFeed");
   const paginationContainer = document.getElementById("pagination");
 
-  postFeed.innerHTML = "<p>Loading posts...</p>";
+  // Show loading spinner
+  postFeed.innerHTML = `
+    <div class="flex justify-center items-center py-4">
+      <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-red-500 border-solid"></div>
+    </div>
+  `;
 
   try {
     const { data: postsData, meta } = await readPosts(
@@ -25,28 +30,35 @@ export async function renderPosts(
       page,
       query,
       sort,
-      sortOrder,
+      sortOrder
     );
 
     if (postsData?.length) {
       const postsHTML = postsData
         .map(
           (post) => `
-          <a href="/post/?id=${post.id}" class="post-link">
-            <article id="post-${post.id}" class="post">
-              <h2>${post.title || "Untitled"}</h2>
-              <p>${post.body || "No content available"}</p>
-              <img src="${
-                post.media?.url && isValidImage(post.media.url)
-                  ? post.media.url
-                  : "/images/placeholder.jpg"
-              }" 
+          <a href="/post/?id=${post.id}" class="block rounded-lg border border-gray-300 bg-white shadow-md overflow-hidden hover:shadow-lg transition">
+            <article id="post-${post.id}" class="p-4">
+              <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || "Untitled"}</h2>
+              <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+                ${post.body || "No content available"}
+              </p>
+              <img
+                src="${
+                  post.media?.url && isValidImage(post.media.url)
+                    ? post.media.url
+                    : "/images/placeholder.jpg"
+                }"
                 alt="${post.media?.alt || "Post Image"}"
-                onerror="this.src='/images/placeholder.jpg';">
-              <p>Tags: ${post.tags?.join(", ") || "No tags"}</p>
+                onerror="this.src='/images/placeholder.jpg';"
+                class="mt-4 w-full h-40 object-cover rounded-md"
+              >
+              <p class="mt-2 text-sm text-gray-500">
+                Tags: ${post.tags?.join(", ") || "No tags"}
+              </p>
             </article>
           </a>
-        `,
+        `
         )
         .join("");
 
@@ -57,15 +69,19 @@ export async function renderPosts(
         page,
         sort,
         sortOrder,
-        query,
+        query
       );
     } else {
-      postFeed.innerHTML = "<p>No posts match your search criteria.</p>";
+      postFeed.innerHTML = `
+        <p class="text-center text-gray-600 mt-4">No posts match your search criteria.</p>
+      `;
       paginationContainer.innerHTML = "";
     }
   } catch (error) {
     console.error("Error rendering posts:", error);
-    postFeed.innerHTML = "<p>An error occurred while loading posts.</p>";
+    postFeed.innerHTML = `
+      <p class="text-center text-red-500 mt-4">An error occurred while loading posts.</p>
+    `;
     paginationContainer.innerHTML = "";
   }
 }
@@ -81,11 +97,23 @@ export async function renderPosts(
 function renderPagination(totalPages, page, sort, sortOrder, query = "") {
   const paginationContainer = document.getElementById("pagination");
 
-  paginationContainer.innerHTML = `
-    <button id="prevPage" ${page <= 1 ? "disabled" : ""}>Previous</button>
-    <span>Page ${page} of ${totalPages}</span>
-    <button id="nextPage" ${page >= totalPages ? "disabled" : ""}>Next</button>
+  let paginationHTML = `
+    <div class="flex justify-center items-center space-x-2 mt-4">
+      <button id="prevPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
+        page <= 1 ? "opacity-50 cursor-not-allowed" : ""
+      }" ${page <= 1 ? "disabled" : ""}>
+        Previous
+      </button>
+      <span class="text-gray-700">Page ${page} of ${totalPages}</span>
+      <button id="nextPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
+        page >= totalPages ? "opacity-50 cursor-not-allowed" : ""
+      }" ${page >= totalPages ? "disabled" : ""}>
+        Next
+      </button>
+    </div>
   `;
+
+  paginationContainer.innerHTML = paginationHTML;
 
   document.getElementById("prevPage")?.addEventListener("click", () => {
     renderPosts(page - 1, sort, sortOrder, query);
