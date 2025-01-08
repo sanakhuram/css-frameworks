@@ -19,12 +19,12 @@ module.exports = {
       },
       keyframes: {
         writing: {
-          '0%, 100%': { transform: 'translateX(0)' }, // Start and end position
-          '50%': { transform: 'translateX(10px)' },  // Move forward
+          '0%, 100%': { transform: 'translateX(0)' }, 
+          '50%': { transform: 'translateX(10px)' },  
         },
       },
       animation: {
-        writing: 'writing 0.8s ease-in-out infinite', // Animation settings
+        writing: 'writing 0.8s ease-in-out infinite', 
       },
     },
   },
