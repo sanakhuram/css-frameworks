@@ -100,28 +100,28 @@ function setupFollowButton(username, followers) {
 function renderUserPosts(posts) {
   const authorPosts = document.getElementById("authorPosts");
   authorPosts.innerHTML = "";
-
+authorPosts.classList.add("grid", "grid-cols-1", "sm:grid-cols-3", "lg:grid-cols-30", "gap-4", "p-4")
   if (!posts || posts.length === 0) {
-    authorPosts.innerHTML = "<p>No posts to display.</p>";
+    authorPosts.innerHTML = "<p class='test-gray-500'>No posts to display.</p>";
     return;
   }
 
   posts.forEach((post) => {
     const postElement = document.createElement("div");
-    postElement.classList.add("post");
+    postElement.classList.add("post", "bg-lightGray", "p-4", "rounded", "shadow", "hover:bg-slate-300", "transition");
 
     const postImage = post.media?.url
       ? `<img src="${post.media.url}" alt="${
           post.media.alt || "Post Image"
-        }" class="post-image">`
-      : `<img src="https://via.placeholder.com/150" alt="Placeholder Image" class="post-image">`;
+        }" class="post-image" w-full h-40 object-cover rounded mb-4>`
+      : `<img src="https://via.placeholder.com/150" alt="Placeholder Image" class="post-image w-full h-40 object-cover rounded mb-4">`;
 
     postElement.innerHTML = `
-      <a href="/post/?id=${post.id}" class="post-link">
+      <a href="/post/?id=${post.id}" class="post-link text-darkBlue hover:underline">
         ${postImage}
-        <h3>${post.title}</h3>
-        <p>${post.body}</p>
-        <small>Posted on: ${new Date(post.created).toLocaleDateString()}</small>
+        <h3 class="text-lg font-bold mb-2">${post.title}</h3>
+        <p class="text-sm text-gray-700 mb-2">${post.body}</p>
+        <small class="text-xs text-gray-500">Posted on: ${new Date(post.created).toLocaleDateString()}</small>
       </a>
     `;
 
