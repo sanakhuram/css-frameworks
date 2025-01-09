@@ -21,141 +21,161 @@
       rel="stylesheet"
     />
   </head>
-   <body class="bg-lightGray text-darkBlue font-sans">
-    <div class="flex justify-center">
+  <body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col">
+    <!-- Logo -->
+    <div class="flex justify-center bg-lightGray py-6 shadow-md">
       <a href="/" class="block">
         <img
           src="/images/logo2.gif"
           alt="Logo"
-          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30"
+          class="h-36 w-auto sm:h-32 md:h-40 lg:h-48"
         />
       </a>
     </div>
-<header class="w-full bg-darkBlue text-lightGray shadow-lg">
-  <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
-    <nav class="flex gap-6 text-sm md:text-base">
-      <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
-        <i class="fas fa-home text-lg"></i>
-        <span class="text-xs sm:text-sm md:block hidden">Home</span>
-      </a>
-      <a
-        href="/profile/"
-        class="flex flex-col items-center gap-1 hover:text-yellow-400"
-      >
-        <i class="fas fa-user text-lg"></i>
-        <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
-      </a>
-      <a
-        href="/auth/login/"
-        class="flex flex-col items-center gap-1 hover:text-yellow-400"
-      >
-        <i class="fas fa-sign-in-alt text-lg"></i>
-        <span class="text-xs sm:text-sm md:block hidden">Login</span>
-      </a>
-      <button
-        id="logoutBtn"
-        class="flex flex-col items-center gap-1 hover:text-yellow-400"
-      >
-        <i class="fas fa-sign-out-alt text-lg"></i>
-        <span class="text-xs sm:text-sm md:block hidden">Logout</span>
-      </button>
-    </nav>
-    <div>
-      <a
-        href="/post/create/"
-        class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
-      >
-        <i class="fas fa-pencil-alt"></i>
-        <span>Create Post</span>
-      </a>
-    </div>
-  </div>
-</header>
-    <!-- Registration Form -->
-    <div class="bg-white p-6 max-w-md mx-auto mt-10 rounded-lg shadow-md sm:p-8">
-      <form name="register" class="space-y-6 sm:space-y-4">
-        <!-- Name Field -->
-        <div>
-          <label
-            for="name"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Name
-          </label>
-          <div class="relative mt-1">
-            <i class="fas fa-user absolute left-3 top-2.5 text-gray-400"></i>
-            <input
-              id="name"
-              type="text"
-              name="name"
-              required
-              maxlength="20"
-              pattern="^[\w]+$"
-              title="Please enter a username using only letters and numbers"
-              class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
-            />
-          </div>
-        </div>
 
-        <!-- Email Field -->
-        <div>
-          <label
-            for="email"
-            class="block text-sm font-medium text-gray-700"
+    <!-- Header -->
+    <header class="w-full bg-darkBlue text-lightGray shadow-lg sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+        <nav class="flex gap-6 text-sm md:text-base">
+          <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Home</span>
+          </a>
+          <a
+            href="/profile/"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
           >
-            Email
-          </label>
-          <div class="relative mt-1">
-            <i class="fas fa-envelope absolute left-3 top-2.5 text-gray-400"></i>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              required
-              pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-              title="Please enter a valid noroff.no or stud.noroff.no address"
-              class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
-            />
-          </div>
-        </div>
-
-        <!-- Password Field -->
-        <div>
-          <label
-            for="password"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Password
-          </label>
-          <div class="relative mt-1">
-            <i class="fas fa-lock absolute left-3 top-2.5 text-gray-400"></i>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              required
-              minlength="8"
-              class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
-            />
-          </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="flex justify-between items-center">
+            <i class="fas fa-user text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
+          </a>
           <a
             href="/auth/login/"
-            class="text-sm text-red hover:underline flex items-center gap-1"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
           >
-            <i class="fas fa-arrow-left"></i> Login
+            <i class="fas fa-sign-in-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Login</span>
           </a>
           <button
-            type="submit"
-            class="bg-red text-white py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2"
+            id="logoutBtn"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
           >
-            <i class="fas fa-user-plus"></i> Register
+            <i class="fas fa-sign-out-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Logout</span>
           </button>
+        </nav>
+        <div>
+          <a
+            href="/post/create/"
+            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Create Post</span>
+          </a>
         </div>
-      </form>
-    </div> 
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center">
+      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-md sm:p-8">
+        <form name="register" class="space-y-6 sm:space-y-4">
+          <!-- Name Field -->
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </label>
+            <div class="relative mt-1">
+              <i class="fas fa-user absolute left-3 top-2.5 text-gray-400"></i>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                maxlength="20"
+                pattern="^[\w]+$"
+                title="Please enter a username using only letters and numbers"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <div class="relative mt-1">
+              <i class="fas fa-envelope absolute left-3 top-2.5 text-gray-400"></i>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                title="Please enter a valid noroff.no or stud.noroff.no address"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <div class="relative mt-1">
+              <i class="fas fa-lock absolute left-3 top-2.5 text-gray-400"></i>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                required
+                minlength="8"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex justify-between items-center">
+            <a
+              href="/auth/login/"
+              class="text-sm text-red hover:underline flex items-center gap-1"
+            >
+              <i class="fas fa-arrow-left"></i> Login
+            </a>
+            <button
+              type="submit"
+              class="bg-red text-white py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2"
+            >
+              <i class="fas fa-user-plus"></i> Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-darkBlue text-lightGray py-4 fixed bottom-0 left-0 z-50 text-sm">
+      <div class="max-w-5xl mx-auto text-center">
+        &copy; 2025 Social Media App by
+        <a
+          href="https://github.com/sanakhuram"
+          target="_blank"
+          class="text-red hover:underline"
+        >
+          Sana Khuram
+        </a>.
+      </div>
+    </footer>
   </body>
 </html>
