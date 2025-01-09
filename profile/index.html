@@ -3,88 +3,168 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Social Media App | Profile Page</title>
     <script type="module" src="/src/app.js"></script>
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/images/favicon-32x32.png"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
   </head>
-
-  <body>
-    <div class="logoContainer">
-      <a href="/" class="logoWrapper">
-        <img src="/images/logo2.gif" alt="Logo" class="logo-trim" />
+  <body class="bg-lightGray text-darkBlue font-sans min-h-screen grid grid-row-[auto_1fr_auto]">
+    <!-- Logo Section -->
+    <div class="flex justify-center mt-10">
+      <a href="/" class="block">
+        <img
+          src="/images/logo2.gif"
+          alt="Logo"
+          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30"
+        />
       </a>
     </div>
-    <div class="pageContainer">
-      <header class="headerContainer">
-        <div class="loginContainer">
-          <a href="/profile/">My Profile</a>
-          <a href="/auth/login/">Login</a>
-          <button id="logoutBtn">Logout</button>
+
+    <!-- Header Section -->
+    <header class="w-full bg-darkBlue text-lightGray shadow-lg">
+      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+        <nav class="flex gap-6 text-sm md:text-base">
+          <a href="/" class="flex flex-col items-center gap-1 hover:text-red">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Home</span>
+          </a>
+          <a href="/profile/" class="flex flex-col items-center gap-1 hover:text-red">
+            <i class="fas fa-user text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
+          </a>
+          <a href="/auth/login/" class="flex flex-col items-center gap-1 hover:text-red">
+            <i class="fas fa-sign-in-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Login</span>
+          </a>
+          <button id="logoutBtn" class="flex flex-col items-center gap-1 hover:text-red">
+            <i class="fas fa-sign-out-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Logout</span>
+          </button>
+        </nav>
+        <div>
+          <a
+            href="/post/create/"
+            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Create Post</span>
+          </a>
         </div>
-        <div class="postButton">
-          <a href="/post/create/" class="postLink">Create Post</a>
-        </div>
-      </header>
-      <div class="profile-container">
-        <a href="/" class="back-link">← Home</a>
-        <h1>My Profile</h1>
-        <div class="profile-card">
+      </div>
+    </header>
+
+    <main class="mt-10 max-w-5xl mx-auto px-4">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6 text-center p-4">My Profile</h1>
+        <div class="profile-card text-center">
           <img
             id="profileAvatar"
             src="../images/default-avatar.png"
             alt="User avatar"
+            class="w-24 h-24 mx-auto rounded-full border-2 border-lightBlue"
           />
-          <h2 id="profileName">Your Name</h2>
-          <p id="profileBio">Bio goes here...</p>
+          <h2 id="profileName" class="text-xl font-semibold mt-4">Your Name</h2>
+          <p id="profileBio" class="text-gray-600">Bio goes here...</p>
 
-          <div class="profile-stats">
-            <span id="postCount">Posts: 0</span>
-            <button type="button" id="followerCount" class="stat-button">
-              Followers: 0
+          <div class="profile-stats flex justify-center gap-6 mt-6">
+            <span id="postCount" class="text-gray-700">Posts: 0</span>
+            <button
+              type="button"
+              id="followerCount"
+              class="text-darkBlue bg-lightBlue py-1 px-3 rounded-md hover:bg-red hover:text-lightGray"
+            >
+              <i class="fas fa-users"></i> Followers: 0
             </button>
-
-            <button type="button" id="followingCount" class="stat-button">
-              Following: 0
+            <button
+              type="button"
+              id="followingCount"
+              class="text-darkBlue bg-lightBlue py-1 px-3 rounded-md hover:bg-red hover:text-lightGray"
+            >
+              <i class="fas fa-user-plus"></i> Following: 0
             </button>
           </div>
 
-          <form id="updateProfileForm" class="profile-form">
-            <label for="avatar">Avatar:</label>
-            <input
-              type="text"
-              id="avatar"
-              name="avatar"
-              placeholder="Image URL"
-            />
+  <form id="updateProfileForm" class="profile-form mt-8 space-y-4 text-left mx-auto max-w-sm">
+  <div class="relative">
+    <label for="avatar" class="block text-sm font-medium text-darkBlue mb-1">Avatar:</label>
+    <div class="relative">
+      <i class="fas fa-image absolute left-3 top-2.5 text-gray-400"></i>
+      <input
+        type="text"
+        id="avatar"
+        name="avatar"
+        placeholder="Image URL"
+        class="block w-full pl-10 border border-gray-300 rounded-md shadow-sm focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
+      />
+    </div>
+  </div>
+  <div class="relative">
+    <label for="name" class="block text-sm font-medium text-darkBlue mb-1">Name:</label>
+    <div class="relative">
+      <i class="fas fa-user absolute left-3 top-2.5 text-gray-400"></i>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+        required
+        class="block w-full pl-10 border border-gray-300 rounded-md shadow-sm focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
+      />
+    </div>
+  </div>
+  <div class="relative">
+    <label for="bio" class="block text-sm font-medium text-darkBlue mb-1">Bio:</label>
+    <div class="relative">
+      <i class="fas fa-pen-alt absolute left-3 top-2.5 text-gray-400"></i>
+      <textarea
+        id="bio"
+        name="bio"
+        placeholder="Tell us about yourself..."
+        class="block w-full pl-10 border border-gray-300 rounded-md shadow-sm focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
+      ></textarea>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="w-full bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2 shadow-sm text-sm"
+  >
+    Update Profile
+  </button>
+</form>
 
-            <label for="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              required
-            />
 
-            <label for="bio">Bio:</label>
-            <textarea
-              id="bio"
-              name="bio"
-              placeholder="Tell us about yourself..."
-            ></textarea>
 
-            <button type="submit">Update Profile</button>
-          </form>
-
-          <h2>Posts</h2>
-          <div id="postContainer" class="posts-container"></div>
+          <h2 class="text-xl font-semibold mt-10">Posts</h2>
+          <div id="postContainer" class="posts-container mt-4"></div>
         </div>
       </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm">
+      <div class="max-w-5xl mx-auto text-center">
+        &copy; 2025 Social Media App by
+        <a
+          href="https://github.com/sanakhuram"
+          target="_blank"
+          class="text-red hover:underline"
+        >
+          Sana Khuram
+        </a>.
+      </div>
+    </footer>
   </body>
 </html>
