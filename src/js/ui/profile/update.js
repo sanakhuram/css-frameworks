@@ -138,8 +138,8 @@ function renderUserPosts(posts) {
           post.media.alt || "Post Image"
         }" class="w-full h-40 object-cover rounded-md mb-2">`
       : `<div class="w-full h-40 bg-gray-200 rounded-md flex items-center justify-center">
-           <span class="text-gray-500">No Image</span>
-         </div>`;
+          <span class="text-gray-500">No Image</span>
+        </div>`;
 
     postElement.innerHTML = `
       ${postImage}
