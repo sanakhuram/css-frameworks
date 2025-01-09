@@ -1,8 +1,8 @@
-import { API_SOCIAL_POSTS } from "../../api/constants.js";
-import { headers } from "../../api/headers.js";
-import { getLoggedInUser } from "../../api/auth.js";
-import { handleDeletePost } from "./delete.js";
-import { postComment, toggleReaction } from "../../api/post/postActions.js";
+import { API_SOCIAL_POSTS } from '../../api/constants.js';
+import { headers } from '../../api/headers.js';
+import { getLoggedInUser } from '../../api/auth.js';
+import { handleDeletePost } from './delete.js';
+import { postComment, toggleReaction } from '../../api/post/postActions.js';
 
 /**
  * Utility function to disable/enable buttons and update text.
@@ -38,12 +38,12 @@ function renderComments(comments = []) {
     comments
       .map(
         (comment) => `
-      <div class="comment">
-        <p><strong>${comment.owner || "Anonymous"}:</strong> ${comment.body}</p>
+      <div class="comment border-b border-gray-300 pb-2 mb-2">
+        <p><strong>${comment.owner || 'Anonymous'}:</strong> ${comment.body}</p>
         <small>Posted on: ${new Date(comment.created).toLocaleString()}</small>
-      </div>`,
+      </div>`
       )
-      .join("") || "<p>No comments available</p>"
+      .join('') || "<p class='text-gray-500'>No comments available</p>"
   );
 }
 
@@ -55,23 +55,23 @@ function renderComments(comments = []) {
  */
 async function handleCommentSubmission(event, postId) {
   event.preventDefault();
-  const commentText = document.getElementById("commentText").value.trim();
+  const commentText = document.getElementById('commentText').value.trim();
 
   if (!commentText) {
-    alert("Please enter a comment.");
+    alert('Please enter a comment.');
     return;
   }
 
   const submitButton = event.target.querySelector("button[type='submit']");
-  toggleButtonState(submitButton, true, "Submitting...", "Submit");
+  toggleButtonState(submitButton, true, 'Submitting...', 'Submit');
 
   try {
     await postComment(postId, commentText);
     renderSinglePost();
   } catch (error) {
-    alert("Error posting comment. Please try again.");
+    alert('Error posting comment. Please try again.');
   } finally {
-    toggleButtonState(submitButton, false, "Submitting...", "Submit");
+    toggleButtonState(submitButton, false, 'Submitting...', 'Submit');
   }
 }
 
@@ -81,21 +81,21 @@ async function handleCommentSubmission(event, postId) {
  * @param {string} postId - The ID of the post being reacted to.
  */
 async function handleReactionToggle(postId) {
-  const likeButton = document.getElementById("likeButton");
-  toggleButtonState(likeButton, true, "Processing...", "👍");
+  const likeButton = document.getElementById('likeButton');
+  toggleButtonState(likeButton, true, 'Processing...', '👍');
 
   try {
-    const updatedReactions = await toggleReaction(postId, "👍");
+    const updatedReactions = await toggleReaction(postId, '👍');
     const totalReactions = calculateTotalReactions(
-      updatedReactions.data.reactions,
+      updatedReactions.data.reactions
     );
-    document.getElementById("likeCount").textContent =
+    document.getElementById('likeCount').textContent =
       `${totalReactions} Likes`;
   } catch (error) {
-    console.error("Error toggling reaction:", error);
-    alert("Error toggling reaction. Please try again.");
+    console.error('Error toggling reaction:', error);
+    alert('Error toggling reaction. Please try again.');
   } finally {
-    toggleButtonState(likeButton, false, "Processing...", "👍");
+    toggleButtonState(likeButton, false, 'Processing...', '👍');
   }
 }
 
@@ -107,98 +107,96 @@ async function handleReactionToggle(postId) {
  * @throws Will throw an error if the post data cannot be fetched.
  */
 export async function renderSinglePost() {
-  const singlePostContainer = document.getElementById("singlePostContainer");
+  const singlePostContainer = document.getElementById('singlePostContainer');
   if (!singlePostContainer) return;
 
-  singlePostContainer.innerHTML = "<p>Loading post data...</p>";
-
   const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get("id");
+  const postId = urlParams.get('id');
 
   if (!postId) {
     singlePostContainer.innerHTML =
-      "<p>Post ID not found. Please select a post.</p>";
+      "<p class='text-red-500'>Post ID not found. Please select a post.</p>";
     return;
   }
 
   try {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${postId}?_author=true&_comments=true&_reactions=true`,
-      { method: "GET", headers: headers() },
+      { method: 'GET', headers: headers() }
     );
-    if (!response.ok) throw new Error("Failed to fetch post data.");
+    if (!response.ok) throw new Error('Failed to fetch post data.');
 
     const { data: post } = await response.json();
 
     const user = getLoggedInUser();
     const isAuthor = post.author?.name === user?.username;
-    const tags = post.tags?.length ? post.tags.join(", ") : "No tags";
+    const tags = post.tags?.length ? post.tags.join(', ') : 'No tags';
     const commentsHTML = renderComments(post.comments);
     const reactionsCount = calculateTotalReactions(post.reactions);
 
     const authorLink = `
-      <a href="/profile/userprofile?username=${post.author?.name}">
-        ${post.author?.name || "Unknown Author"}
+      <a href="/profile/userprofile?username=${post.author?.name}" class="text-darkRed hover:underline">
+        ${post.author?.name || 'Unknown Author'}
       </a>
     `;
 
     const postActions = isAuthor
-      ? `<div class="post-actions">
-        <button onclick="location.href='/post/edit/?id=${post.id}'">Edit</button>
-        <button id="deletePostButton">Delete</button>
+      ? `<div class="post-actions mt-4">
+        <button onclick="location.href='/post/edit/?id=${post.id}'" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-red">Edit</button>
+        <button id="deletePostButton" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
         </div>`
-      : "";
+      : '';
 
     singlePostContainer.innerHTML = `
-      <article id="post-${post.id}" class="post">
-        <h1>${post.title || "Untitled Post"}</h1>
-        <p>${post.body || "No content available"}</p>
+      <article id="post-${post.id}" class="post bg-white p-4 rounded shadow">
+        <h1 class="text-2xl font-bold mb-4 text-center">${post.title || 'Untitled Post'}</h1>
+        <p class="mb-4 text-center py-2">${post.body || 'No content available'}</p>
         <img src="${
-          post.media?.url || "/images/default-image.jpg"
-        }" alt="Post Image">
+          post.media?.url || '/images/default-image.jpg'
+        }" alt="Post Image" class="w-full rounded mb-4">
         <p><strong>Tags:</strong> ${tags}</p>
         <p><strong>Author:</strong> ${authorLink}</p>
-        <h3>Comments:</h3>
-        <div id="commentsSection">${commentsHTML}</div>
-        <form id="commentForm">
-          <textarea id="commentText" placeholder="Add a comment..."></textarea>
-          <button type="submit">Submit</button>
+        <h3 class="text-lg font-bold mt-6">Comments:</h3>
+        <div id="commentsSection" class="mt-4">${commentsHTML}</div>
+        <form id="commentForm" class="mt-4">
+          <textarea id="commentText" class="w-full border rounded p-2" placeholder="Add a comment..."></textarea>
+          <button type="submit" class="bg-darkRed text-white px-4 py-2 rounded hover:bg-darkBlue mt-2">Submit</button>
         </form>
-        <h3>Reactions:</h3>
-        <p id="likeCount">${reactionsCount} Likes</p>
-        <button id="likeButton">👍</button>
+        <h3 class="text-lg font-bold mt-6 ">Reactions:</h3>
+        <p id="likeCount" class="mt-2">${reactionsCount} Likes</p>
+        <button id="likeButton" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-red">👍</button>
         ${postActions}
       </article>
     `;
 
     if (isAuthor) {
       document
-        .getElementById("deletePostButton")
-        .addEventListener("click", async () => {
+        .getElementById('deletePostButton')
+        .addEventListener('click', async () => {
           try {
             await handleDeletePost(post.id);
-            alert("Post deleted successfully.");
-            window.location.href = "/";
+            alert('Post deleted successfully.');
+            window.location.href = '/';
           } catch (error) {
-            alert("Failed to delete post.");
+            alert('Failed to delete post.');
           }
         });
     }
 
     document
-      .getElementById("commentForm")
-      .addEventListener("submit", (event) =>
-        handleCommentSubmission(event, postId),
+      .getElementById('commentForm')
+      .addEventListener('submit', (event) =>
+        handleCommentSubmission(event, postId)
       );
 
     document
-      .getElementById("likeButton")
-      .addEventListener("click", () => handleReactionToggle(postId));
+      .getElementById('likeButton')
+      .addEventListener('click', () => handleReactionToggle(postId));
   } catch (error) {
-    console.error("Error rendering single post:", error);
+    console.error('Error rendering single post:', error);
     singlePostContainer.innerHTML = `
-      <p>An error occurred while loading the post. Please try again later.</p>
-      <button onclick="location.reload()">Retry</button>
+      <p class='text-red-500'>An error occurred while loading the post. Please try again later.</p>
+      <button onclick="location.reload()" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-lightBlue">Retry</button>
     `;
   }
 }

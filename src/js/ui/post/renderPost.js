@@ -37,7 +37,7 @@ export async function renderPosts(
       const postsHTML = postsData
         .map(
           (post) => `
-      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow hover:shadow-lg transition-all overflow-hidden">
+      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow hover:bg-slate-300 transition-all overflow-hidden ">
         <article id="post-${post.id}" class="p-4 h-full flex flex-col">
           <div class="mb-4">
             <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || 'Untitled'}</h2>
