@@ -143,7 +143,7 @@ export async function renderSinglePost() {
     const postActions = isAuthor
       ? `<div class="post-actions mt-4">
         <button onclick="location.href='/post/edit/?id=${post.id}'" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-red">Edit</button>
-        <button id="deletePostButton" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+        <button id="deletePostButton" class="bg-red text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
         </div>`
       : '';
 
