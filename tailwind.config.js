@@ -2,6 +2,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  darkMode: 'class',
   content: ['./**/*.{html,js,ts}', '!./node_modules/**/*.{html,js}'],
   theme: {
     extend: {
@@ -19,12 +20,12 @@ module.exports = {
       },
       keyframes: {
         writing: {
-          '0%, 100%': { transform: 'translateX(0)' }, 
-          '50%': { transform: 'translateX(10px)' },  
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(10px)' },
         },
       },
       animation: {
-        writing: 'writing 0.8s ease-in-out infinite', 
+        writing: 'writing 0.8s ease-in-out infinite',
       },
     },
   },
