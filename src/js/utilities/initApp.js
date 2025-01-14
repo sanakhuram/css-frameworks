@@ -12,11 +12,13 @@ import { renderPosts } from '../ui/post/renderPost.js';
 import { renderSinglePost } from '../ui/post/renderSinglePost.js';
 import { loadPostData, onUpdatePost } from '../ui/post/update.js';
 import { renderUserProfile } from '../ui/profile/userProfile.js';
-import { showSpinner, hideSpinner } from '../utilities/spinner.js'; 
+import { showSpinner, hideSpinner } from '../utilities/spinner.js';
+import { initializeThemeToggle } from '../utilities/theme'; 
+
 
 /**
  * Utility function to safely attach event listeners.
- * @param {string} selector -  selector for the target element.
+ * @param {string} selector - Selector for the target element.
  * @param {string} event - Event type.
  * @param {Function} handler - Event handler function.
  */
@@ -29,8 +31,9 @@ function attachEventListener(selector, event, handler) {
 
 export async function initializeApp() {
   try {
-
     showSpinner();
+
+    initializeThemeToggle(); 
 
     attachEventListener("form[name='register']", 'submit', onRegister);
 
