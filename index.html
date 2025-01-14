@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media App</title>
+    <title>Social Media App | Home Page</title>
     <script type="module" src="/src/app.js"></script>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -20,17 +20,28 @@
     />
     
   </head>
-  <body class="bg-lightGray text-darkBlue font-sans">
+  <body class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans">
+<div class="bg-darkBlue border ">
+    <div class="flex justify-end p-4">
+      <button
+    id="themeToggle"
+    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all"
+    aria-label="Toggle Theme"
+  >
+    <i id="themeIcon" class="fas fa-sun"></i>
+  </button>
+</div>
     <div class="flex justify-center">
       <a href="/" class="block">
         <img
-          src="/images/logo2.gif"
+          src="/images/logo1.gif"
           alt="Logo"
-          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30"
+          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30 "
         />
       </a>
     </div>
-<header class="w-full bg-darkBlue text-lightGray shadow-lg">
+    </div>
+<header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-lg">
   <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
     <nav class="flex gap-6 text-sm md:text-base">
       <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -60,21 +71,18 @@
       </button>
     </nav>
     <div>
-      <a
-        href="/post/create/"
-        class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
-      >
-        <i class="fas fa-pencil-alt"></i>
-        <span>Create Post</span>
-      </a>
+        <a href="/post/create/"
+          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Create Post</span>
+        </a>
     </div>
   </div>
 </header>
 
     <main class="mt-10 max-w-5xl mx-auto px-4">
-      <!-- Sorting Options -->
       <section class="flex flex-wrap gap-4 items-center mb-8">
-        <label for="sortOrder" class="font-semibold text-darkBlue flex items-center gap-2">
+        <label for="sortOrder" class="font-semibold text-darkBlue dark:text-lightBlue flex items-center gap-2">
           <i class="fas fa-sort"></i> Order:
         </label>
         <select
@@ -91,9 +99,8 @@
           <i class="fas fa-filter"></i> Apply
         </button>
       </section>
-        <!-- Search Section -->
         <section class="flex flex-wrap gap-4 items-center mb-8">
-          <label for="searchQuery" class="font-semibold text-darkBlue">Search Posts:</label>
+          <label for="searchQuery" class="font-semibold text-darkBlue dark:text-lightBlue flex items-center gap-2"><i class="fa-solid fa-magnifying-glass"></i>Search Posts:</label>
           <input
             id="searchQuery"
             type="text"
@@ -102,7 +109,7 @@
           />
           <button
             id="searchButton"
-            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed"
+            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-yellow-500"
           >
             Search
           </button>
@@ -112,8 +119,6 @@
   <img src="/images/loader.png" alt="Loading..." class="animate-writing w-12 h-12" />
 </div>
 
-      
-      <!-- Post Feed -->
       <section
         id="postFeed"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -125,17 +130,13 @@
         aria-label="Pagination"
       ></nav>
     </main>
-
-    <!-- Back to Top Button -->
     <a href="#top" id="backToTopBtn" title="back to top"
       class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
       aria-label="Back to Top"
     >
       <i class="fas fa-arrow-up"></i>
     </a></button>
-
-    <!-- Footer -->
-    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm">
+    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue">
 <div class="max-w-5xl mx-auto text-center">
   &copy; 2025 Social Media App by 
   <a 
