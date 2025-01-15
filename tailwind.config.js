@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: 'class',
-  content: ['./**/*.{html,js,ts}', '!./node_modules/**/*.{html,js}'],
+  content: ['./**/*.{html,js}', '!./node_modules/**/*.{html,js}'],
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,13 @@ module.exports = {
         serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['Fira Code', 'Courier New', 'monospace'],
       },
+      boxShadow: {
+        'red-yellow':
+          '0 4px 6px -1px rgba(239, 35, 60, 0.5), 0 2px 4px -1px rgba(252, 211, 77, 0.5)',
+        'yellow-glow': '0 8px 15px rgba(252, 211, 77, 0.6)',
+        'red-glow': '0 8px 15px rgba(239, 35, 60, 0.6)',
+        'soft-dark': '0 2px 8px rgba(0, 0, 0, 0.4)',
+      },
       keyframes: {
         writing: {
           '0%, 100%': { transform: 'translateX(0)' },
@@ -31,6 +38,3 @@ module.exports = {
   },
   plugins: [],
 };
-
-
-
