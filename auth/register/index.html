@@ -21,21 +21,28 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col">
-    
-    <!-- Logo -->
-    <div class="flex justify-center bg-lightGray py-6 shadow-md">
+  <body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col  dark:bg-darkBlue">
+<div class="bg-darkBlue border ">
+    <div class="flex justify-end p-4">
+      <button
+    id="themeToggle"
+    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all"
+    aria-label="Toggle Theme"
+  >
+    <i id="themeIcon" class="fas fa-sun"></i>
+  </button>
+</div>
+    <div class="flex justify-center">
       <a href="/" class="block">
         <img
-          src="/images/logo2.gif"
+          src="/images/logo1.gif"
           alt="Logo"
-          class="h-36 w-auto sm:h-32 md:h-40 lg:h-48"
+          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30 "
         />
       </a>
     </div>
-
-    <!-- Header -->
-    <header class="w-full bg-darkBlue text-lightGray shadow-lg sticky top-0 z-50">
+    </div>
+    <header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-lg sticky top-0 z-50">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
         <nav class="flex gap-6 text-sm md:text-base">
           <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -76,7 +83,7 @@
 
     <!-- Main Content -->
     <main class="flex-grow flex items-center justify-center">
-      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-md sm:p-8">
+      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-md sm:p-8 dark:bg-lightBlue">
         <form name="register" class="space-y-6 sm:space-y-4">
           <!-- Name Field -->
           <div>
@@ -164,7 +171,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full bg-darkBlue text-lightGray py-4 fixed bottom-0 left-0 z-50 text-sm">
+    <footer class="w-full bg-darkBlue text-lightGray py-4 fixed bottom-0 left-0 z-50 text-sm  dark:bg-lightBlue">
       <div class="max-w-5xl mx-auto text-center">
         &copy; 2025 Social Media App by
         <a
