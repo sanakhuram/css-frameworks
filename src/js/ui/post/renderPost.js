@@ -37,8 +37,8 @@ export async function renderPosts(
       const postsHTML = postsData
         .map(
           (post) => `
-      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow hover:bg-slate-300 transition-all overflow-hidden ">
-        <article id="post-${post.id}" class="p-4 h-full flex flex-col">
+      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow-red-yellow hover:bg-slate-300 transition-all overflow-hidden ">
+        <article id="post-${post.id}" class="p-4 h-full flex flex-col ">
           <div class="mb-4">
             <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || 'Untitled'}</h2>
             <p class="text-sm text-gray-600 mt-2 line-clamp-2">${post.body || 'No content available'}</p>
@@ -104,7 +104,7 @@ function renderPagination(totalPages, page, sort, sortOrder, query = "") {
       }" ${page <= 1 ? "disabled" : ""}>
         Previous
       </button>
-      <span class="text-gray-700">Page ${page} of ${totalPages}</span>
+      <span class="text-gray-700 dark:text-white">Page ${page} of ${totalPages}</span>
       <button id="nextPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
         page >= totalPages ? "opacity-50 cursor-not-allowed" : ""
       }" ${page >= totalPages ? "disabled" : ""}>
