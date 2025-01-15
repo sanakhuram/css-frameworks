@@ -149,21 +149,21 @@ export async function renderSinglePost() {
 
     singlePostContainer.innerHTML = `
       <article id="post-${post.id}" class="post bg-white p-4 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4 text-center">${post.title || 'Untitled Post'}</h1>
-        <p class="mb-4 text-center py-2">${post.body || 'No content available'}</p>
+        <h1 class="text-2xl font-bold mb-4 text-center text-darkBlue ">${post.title || 'Untitled Post'}</h1>
+        <p class="mb-4 text-center py-2 text-darkBlue">${post.body || 'No content available'}</p>
         <img src="${
           post.media?.url || '/images/default-image.jpg'
-        }" alt="Post Image" class="w-full rounded mb-4">
-        <p><strong>Tags:</strong> ${tags}</p>
+        }" alt="Post Image" class="w-full rounded mb-4 text-darkBlue">
+        <p class:"text-darkBlue"><strong>Tags:</strong> ${tags}</p>
         <p><strong>Author:</strong> ${authorLink}</p>
-        <h3 class="text-lg font-bold mt-6">Comments:</h3>
-        <div id="commentsSection" class="mt-4">${commentsHTML}</div>
-        <form id="commentForm" class="mt-4">
+        <h3 class="text-lg font-bold mt-6 text-darkBlue">Comments:</h3>
+        <div id="commentsSection" class="mt-4 text-darkBlue">${commentsHTML}</div>
+        <form id="commentForm" class="mt-4 text-darkBlue">
           <textarea id="commentText" class="w-full border rounded p-2" placeholder="Add a comment..."></textarea>
           <button type="submit" class="bg-darkRed text-white px-4 py-2 rounded hover:bg-darkBlue mt-2">Submit</button>
         </form>
-        <h3 class="text-lg font-bold mt-6 ">Reactions:</h3>
-        <p id="likeCount" class="mt-2">${reactionsCount} Likes</p>
+        <h3 class="text-lg font-bold mt-6 text-darkBlue ">Reactions:</h3>
+        <p id="likeCount" class="mt-2 text-darkBlue">${reactionsCount} Likes</p>
         <button id="likeButton" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-red">👍</button>
         ${postActions}
       </article>
