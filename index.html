@@ -41,7 +41,7 @@
       </a>
     </div>
     </div>
-<header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-lg">
+<header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow">
   <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
     <nav class="flex gap-6 text-sm md:text-base">
       <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -72,7 +72,7 @@
     </nav>
     <div>
         <a href="/post/create/"
-          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
+          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark">
           <i class="fas fa-pencil-alt"></i>
           <span>Create Post</span>
         </a>
@@ -87,14 +87,14 @@
         </label>
         <select
           id="sortOrder"
-          class="border border-lightBlue rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-red focus:border-red"
+          class="border border-lightBlue rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-red focus:border-red shadow-soft-dark"
         >
           <option value="desc">Newest</option>
           <option value="asc">Oldest</option>
         </select>
         <button
           id="applySort"
-          class="bg-yellow-500 text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2"
+          class="bg-yellow-500 text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
         >
           <i class="fas fa-filter"></i> Apply
         </button>
@@ -105,11 +105,11 @@
             id="searchQuery"
             type="text"
             placeholder="Search by title or body..."
-            class="border border-lightBlue rounded-md p-2 flex-grow focus:outline-none focus:ring-1 focus:ring-red focus:border-red"
+            class="border border-lightBlue rounded-md p-2 flex-grow focus:outline-none focus:ring-1 focus:ring-red focus:border-red shadow-soft-dark dark:shadow-lightBlue"
           />
           <button
             id="searchButton"
-            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-yellow-500"
+            class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-yellow-500 shadow-soft-dark dark:shadow-lightBlue"
           >
             Search
           </button>
@@ -138,14 +138,14 @@
     </a></button>
     <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue">
 <div class="max-w-5xl mx-auto text-center">
-  &copy; 2025 Social Media App by 
+  &copy; 2025 Social Media App by
   <a 
     href="https://github.com/sanakhuram"
     target="_blank" 
     class="text-red hover:underline"
   >
-    Sana Khuram
-  </a>.
+    Sana Khuram🐞
+  </a>
 </div>
     </footer>
   </body>
