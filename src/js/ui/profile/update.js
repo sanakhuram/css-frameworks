@@ -54,9 +54,9 @@ function updateProfileUI(profileData) {
   }`;
 
   followerCountElement.className =
-    'text-darkBlue bg-lightBlue py-1 px-3 rounded-md hover:bg-red hover:text-lightGray cursor-pointer';
+    'text-darkBlue bg-lightBlue dark:bg-darkBlue dark:text-white dark:hover:bg-red  py-1 px-3 rounded-md hover:bg-red hover:text-lightGray cursor-pointer shadow-red-yellow';
   followingCountElement.className =
-    'text-darkBlue bg-lightBlue py-1 px-3 rounded-md hover:bg-red hover:text-lightGray cursor-pointer';
+    'text-darkBlue bg-lightBlue py-1 px-3 rounded-md hover:bg-red hover:text-lightGray cursor-pointer dark:bg-darkBlue dark:text-white dark:hover:bg-red shadow-red-yellow ';
 
   followerCountElement.addEventListener('click', () => {
     showModal(
@@ -121,17 +121,16 @@ function renderUserPosts(posts) {
   postContainer.innerHTML = "";
 
   if (posts.length === 0) {
-    postContainer.innerHTML = `<p class="text-gray-600 text-center">No posts to display.</p>`;
+    postContainer.innerHTML = `<p class="text-gray-600 text-center shadow-red-yellow">No posts to display.</p>`;
     return;
   }
 
-  // Add grid container classes
   postContainer.className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6";
 
   posts.forEach((post) => {
     const postElement = document.createElement("div");
     postElement.className =
-      "bg-white shadow-md rounded-lg p-4 border border-gray-200 flex flex-col";
+      "bg-white shadow-md rounded-lg p-4 border border-gray-200 flex flex-col shadow-yellow-400";
 
     const postImage = post.media?.url
       ? `<img src="${post.media.url}" alt="${
