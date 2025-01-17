@@ -22,27 +22,28 @@
     />
   </head>
   <body class="bg-lightGray text-darkBlue font-sans min-h-screen dark:bg-darkBlue ">
-<div class="bg-darkBlue border ">
-    <div class="flex justify-end p-4">
-      <button
+<div class="bg-darkBlue">
+<div class="flex justify-end p-2">
+  <button
     id="themeToggle"
-    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all"
+    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
     aria-label="Toggle Theme"
   >
-    <i id="themeIcon" class="fas fa-sun"></i>
+    <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
   </button>
 </div>
-    <div class="flex justify-center">
-      <a href="/" class="block">
-        <img
-          src="/images/logo1.gif"
-          alt="Logo"
-          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30 "
-        />
-      </a>
-    </div>
-    </div>
-    <header class="w-full bg-darkBlue text-lightGray shadow-lg sticky top-0 z-50 dark:bg-lightBlue">
+
+<div class="flex justify-center">
+  <a href="/" class="block">
+    <img
+      src="/images/logo1.gif"
+      alt="Logo"
+      class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
+    />
+  </a>
+</div>
+</div>
+    <header class="w-full bg-darkBlue text-lightGray shadow-red-glow sticky top-0 z-50 dark:bg-lightBlue">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
         <nav class="flex gap-6 text-sm md:text-base">
           <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -73,7 +74,7 @@
         </nav>
         <div>
         <a href="/post/create/"
-          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
+          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark">
           <i class="fas fa-pencil-alt"></i>
           <span>Create Post</span>
         </a>
@@ -81,7 +82,7 @@
       </div>
     </header>
     <main class="flex items-center justify-center min-h-[calc(100vh-25rem)]">
-      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-md sm:p-8 dark:bg-lightBlue">
+      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg sm:p-8 dark:bg-lightBlue shadow-red-yellow">
         <form name="login" class="space-y-6 sm:space-y-4">
           <div>
             <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
@@ -92,7 +93,7 @@
                 type="email"
                 name="email"
                 required
-                class="pl-10 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red focus:border-red"
+                class="pl-10 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red focus:border-red shadow-soft-dark"
               />
             </div>
           </div>
@@ -105,7 +106,7 @@
                 name="password"
                 id="password"
                 required
-                class="pl-10 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red focus:border-red"
+                class="pl-10 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red focus:border-red shadow-soft-dark"
               />
             </div>
           </div>
@@ -114,13 +115,13 @@
           <div class="flex items-center justify-between">
             <a
               href="/auth/register/"
-              class="text-sm text-red hover:underline flex items-center gap-1"
+              class="text-sm text-darkRed hover:underline flex items-center gap-1"
             >
               <i class="fas fa-user-plus"></i> Register
             </a>
             <button
               type="submit"
-              class="bg-red text-white px-4 py-2 rounded-md hover:bg-darkRed transition flex items-center gap-1"
+              class="bg-red text-white px-4 py-2 rounded-md hover:bg-darkRed transition flex items-center gap-1 shadow-soft-dark"
             >
               <i class="fas fa-sign-in-alt"></i> Login
             </button>
