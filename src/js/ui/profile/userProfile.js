@@ -108,7 +108,7 @@ authorPosts.classList.add("grid", "grid-cols-1", "sm:grid-cols-3", "lg:grid-cols
 
   posts.forEach((post) => {
     const postElement = document.createElement("div");
-    postElement.classList.add("post", "bg-lightGray", "p-4", "rounded", "shadow", "hover:bg-slate-300", "transition");
+    postElement.classList.add("post", "p-4", "rounded-lg","border" ,"border-gray-400", "bg-white" ,"shadow-red-yellow", "hover:bg-blue-100", "transition");
 
     const postImage = post.media?.url
       ? `<img src="${post.media.url}" alt="${
@@ -117,7 +117,7 @@ authorPosts.classList.add("grid", "grid-cols-1", "sm:grid-cols-3", "lg:grid-cols
       : `<img src="https://via.placeholder.com/150" alt="Placeholder Image" class="post-image w-full h-40 object-cover rounded mb-4">`;
 
     postElement.innerHTML = `
-      <a href="/post/?id=${post.id}" class="post-link text-darkBlue hover:underline">
+      <a href="/post/?id=${post.id}" class="post-link text-darkBlue">
         ${postImage}
         <h3 class="text-lg font-bold mb-2">${post.title}</h3>
         <p class="text-sm text-gray-700 mb-2">${post.body}</p>
