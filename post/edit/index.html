@@ -14,17 +14,29 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>
 
-<body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col">
-    <div class="flex justify-center">
-      <a href="/" class="block">
-        <img
-          src="/images/logo2.gif"
-          alt="Logo"
-          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30"
-        />
-      </a>
-    </div>
-  <header class="w-full bg-darkBlue text-lightGray shadow-lg">
+<body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col  dark:bg-darkBlue dark:text-lightBlue">
+<div class="bg-darkBlue">
+<div class="flex justify-end p-2">
+  <button
+    id="themeToggle"
+    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
+    aria-label="Toggle Theme"
+  >
+    <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
+  </button>
+</div>
+
+<div class="flex justify-center">
+  <a href="/" class="block">
+    <img
+      src="/images/logo1.gif"
+      alt="Logo"
+      class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
+    />
+  </a>
+</div>
+</div>
+  <header class="w-full bg-darkBlue text-lightGray dark:bg-lightBlue shadow-red-glow">
     <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
       <nav class="flex gap-6 text-sm md:text-base">
         <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -46,56 +58,56 @@
       </nav>
       <div>
         <a href="/post/create/"
-          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
+          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md shadow-soft-dark hover:bg-darkRed flex items-center gap-2">
           <i class="fas fa-pencil-alt"></i>
           <span>Create Post</span>
         </a>
       </div>
     </div>
   </header>
-
-  <!-- Main Content -->
   <main class="flex-1 mt-10 max-w-5xl mx-auto px-4">
-    <div class="bg-white p-8 rounded-lg shadow-md">
+    <div class="bg-white p-8 rounded-lg shadow-red-yellow">
       <h1 class="text-2xl font-bold mb-6 text-center p-4 text-darkBlue">Edit Post</h1>
       <form id="editPostForm" class="space-y-6 sm:space-y-4">
         <div>
-          <label for="editPostTitleForm" class="block text-sm font-semibold mb-2 mt-4">Post Title</label>
+          <label for="editPostTitleForm" class="block text-sm text-darkBlue font-semibold mb-2 mt-4">Post Title</label>
           <input type="text" id="editPostTitleForm" name="title" placeholder="Enter post title"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red" required />
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red shadow-inner" required />
 
-          <label for="editPostContentForm" class="block text-sm font-semibold mb-2 mt-4">Post Content</label>
+          <label for="editPostContentForm" class="block text-sm font-semibold mb-2 mt-4 text-darkBlue">Post Content</label>
           <textarea id="editPostContentForm" name="content" placeholder="Enter post content"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red" required></textarea>
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red shadow-inner" required></textarea>
 
-          <label for="editImageURL" class="block text-sm font-semibold mb-2 mt-4">Image URL</label>
+          <label for="editImageURL" class="block text-sm font-semibold mb-2 mt-4 text-darkBlue">Image URL</label>
           <input type="text" id="editImageURL" name="imageUrl" placeholder="Enter image URL"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red" required />
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red shadow-inner" required />
 
-          <label for="editImageAltText" class="block text-sm font-semibold mb-2 mt-4">Image Alt Text</label>
+          <label for="editImageAltText" class="block text-sm font-semibold mb-2 mt-4 text-darkBlue">Image Alt Text</label>
           <input type="text" id="editImageAltText" name="imageAlt" placeholder="Enter image alt text"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red" required />
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red shadow-inner" required />
 
-          <label for="editTagsInput" class="block text-sm font-semibold mb-2 mt-4">Tags (separate by commas)</label>
+          <label for="editTagsInput" class="block text-sm font-semibold mb-2 mt-4 text-darkBlue">Tags (separate by commas)</label>
           <input type="text" id="editTagsInput" name="tags" placeholder="Enter tags"
-            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red" required />
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-red shadow-inner" required />
 
-          <button type="submit" class="bg-darkBlue text-lightGray py-2 px-4 w-full rounded-md hover:bg-red mt-6">Update
+          <button type="submit" class="bg-darkBlue text-lightGray py-2 px-4 w-full rounded-md hover:bg-red mt-6 shadow-red-yellow">Update
             Post<i class="fas fa-upload ml-2"></i></button>
         </div>
       </form>
     </div>
   </main>
-
-  <!-- Footer -->
-  <footer class="w-full bg-darkBlue text-lightGray py-4 text-center text-sm">
-    <div class="max-w-5xl mx-auto">
-      &copy; 2025 Social Media App by
-      <a href="https://github.com/sanakhuram" target="_blank" class="text-red hover:underline">
-        Sana Khuram
-      </a>.
-    </div>
-  </footer>
+    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue">
+<div class="max-w-5xl mx-auto text-center">
+  &copy; 2025 Social Media App by
+  <a 
+    href="https://github.com/sanakhuram"
+    target="_blank" 
+    class="text-red hover:underline"
+  >
+    Sana Khuram🐞
+  </a>
+</div>
+    </footer>
 </body>
 
 </html>
