@@ -142,29 +142,29 @@ export async function renderSinglePost() {
 
     const postActions = isAuthor
       ? `<div class="post-actions mt-4">
-        <button onclick="location.href='/post/edit/?id=${post.id}'" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-red">Edit</button>
-        <button id="deletePostButton" class="bg-red text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+        <button onclick="location.href='/post/edit/?id=${post.id}'" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-red shadow-soft-dark">Edit</button>
+        <button id="deletePostButton" class="bg-red text-white px-4 py-2 rounded hover:bg-red-600 shadow-red-yellow">Delete</button>
         </div>`
       : '';
 
     singlePostContainer.innerHTML = `
-      <article id="post-${post.id}" class="post bg-white p-4 rounded shadow">
+      <article id="post-${post.id}" class="post bg-white p-4 rounded shadow-red-glow border-darkBlue dark:bg-lightBlue dark:text-darkBlue">
         <h1 class="text-2xl font-bold mb-4 text-center text-darkBlue ">${post.title || 'Untitled Post'}</h1>
         <p class="mb-4 text-center py-2 text-darkBlue">${post.body || 'No content available'}</p>
         <img src="${
           post.media?.url || '/images/default-image.jpg'
-        }" alt="Post Image" class="w-full rounded mb-4 text-darkBlue">
+        }" alt="Post Image" class="w-full rounded mb-4 text-darkBlue shadow-yellow-glow border border-gray-400">
         <p class:"text-darkBlue"><strong>Tags:</strong> ${tags}</p>
         <p><strong>Author:</strong> ${authorLink}</p>
         <h3 class="text-lg font-bold mt-6 text-darkBlue">Comments:</h3>
         <div id="commentsSection" class="mt-4 text-darkBlue">${commentsHTML}</div>
         <form id="commentForm" class="mt-4 text-darkBlue">
-          <textarea id="commentText" class="w-full border rounded p-2" placeholder="Add a comment..."></textarea>
-          <button type="submit" class="bg-darkRed text-white px-4 py-2 rounded hover:bg-darkBlue mt-2">Submit</button>
+          <textarea id="commentText" class="w-full border rounded p-2 shadow-inner" placeholder="Add a comment..."></textarea>
+          <button type="submit" class="bg-darkRed text-white px-4 py-2 rounded hover:bg-darkBlue mt-2 shadow-red-yellow">Submit</button>
         </form>
         <h3 class="text-lg font-bold mt-6 text-darkBlue ">Reactions:</h3>
         <p id="likeCount" class="mt-2 text-darkBlue">${reactionsCount} Likes</p>
-        <button id="likeButton" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-red">👍</button>
+        <button id="likeButton" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-red shadow-soft-dark">👍</button>
         ${postActions}
       </article>
     `;
