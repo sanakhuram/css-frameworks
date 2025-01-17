@@ -22,27 +22,28 @@
     />
   </head>
   <body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col  dark:bg-darkBlue">
-<div class="bg-darkBlue border ">
-    <div class="flex justify-end p-4">
-      <button
+<div class="bg-darkBlue">
+<div class="flex justify-end p-2">
+  <button
     id="themeToggle"
-    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all"
+    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
     aria-label="Toggle Theme"
   >
-    <i id="themeIcon" class="fas fa-sun"></i>
+    <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
   </button>
 </div>
-    <div class="flex justify-center">
-      <a href="/" class="block">
-        <img
-          src="/images/logo1.gif"
-          alt="Logo"
-          class="h-25 w-auto sm:h-15 md:h-18 lg:h-30 "
-        />
-      </a>
-    </div>
-    </div>
-    <header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-lg sticky top-0 z-50">
+
+<div class="flex justify-center">
+  <a href="/" class="block">
+    <img
+      src="/images/logo1.gif"
+      alt="Logo"
+      class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
+    />
+  </a>
+</div>
+</div>
+    <header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow sticky top-0 z-50">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
         <nav class="flex gap-6 text-sm md:text-base">
           <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
@@ -73,7 +74,7 @@
         </nav>
         <div>
         <a href="/post/create/"
-          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
+          class="bg-red text-lightGray py-2 shadow-soft-dark px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
           <i class="fas fa-pencil-alt"></i>
           <span>Create Post</span>
         </a>
@@ -81,11 +82,9 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <main class="flex-grow flex items-center justify-center">
-      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-md sm:p-8 dark:bg-lightBlue">
+      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-red-yellow sm:p-8 dark:bg-lightBlue">
         <form name="register" class="space-y-6 sm:space-y-4">
-          <!-- Name Field -->
           <div>
             <label
               for="name"
@@ -103,7 +102,7 @@
                 maxlength="20"
                 pattern="^[\w]+$"
                 title="Please enter a username using only letters and numbers"
-                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-soft-dark py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
               />
             </div>
           </div>
@@ -125,7 +124,7 @@
                 required
                 pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
                 title="Please enter a valid noroff.no or stud.noroff.no address"
-                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-soft-dark py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
               />
             </div>
           </div>
@@ -146,7 +145,7 @@
                 name="password"
                 required
                 minlength="8"
-                class="pl-10 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
+                class="pl-10 block w-full border border-gray-300 rounded-md shadow-soft-dark py-2 px-3 focus:outline-none focus:ring-red focus:border-red sm:text-sm"
               />
             </div>
           </div>
@@ -155,13 +154,13 @@
           <div class="flex justify-between items-center">
             <a
               href="/auth/login/"
-              class="text-sm text-red hover:underline flex items-center gap-1"
+              class="text-sm text-darkRed hover:underline flex items-center gap-1"
             >
               <i class="fas fa-arrow-left"></i> Login
             </a>
             <button
               type="submit"
-              class="bg-red text-white py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2"
+              class="bg-red text-white py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2 shadow-soft-dark"
             >
               <i class="fas fa-user-plus"></i> Register
             </button>
@@ -179,8 +178,8 @@
           target="_blank"
           class="text-red hover:underline"
         >
-          Sana Khuram
-        </a>.
+          Sana Khuram 🐞
+        </a>
       </div>
     </footer>
   </body>
