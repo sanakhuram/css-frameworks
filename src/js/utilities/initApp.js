@@ -13,8 +13,8 @@ import { renderSinglePost } from '../ui/post/renderSinglePost.js';
 import { loadPostData, onUpdatePost } from '../ui/post/update.js';
 import { renderUserProfile } from '../ui/profile/userProfile.js';
 import { showSpinner, hideSpinner } from '../utilities/spinner.js';
-import { initializeThemeToggle } from '../utilities/theme'; 
-
+import { initializeThemeToggle } from '../utilities/theme';
+import { showAlert } from './alert.js';
 
 /**
  * Utility function to safely attach event listeners.
@@ -33,7 +33,7 @@ export async function initializeApp() {
   try {
     showSpinner();
 
-    initializeThemeToggle(); 
+    initializeThemeToggle();
 
     attachEventListener("form[name='register']", 'submit', onRegister);
 
@@ -55,7 +55,7 @@ export async function initializeApp() {
         await renderPosts();
       } catch (error) {
         console.error('Error loading posts:', error);
-        alert('Error loading posts. Please try again later.');
+        showAlert('Error loading posts. Please try again later.', 'error');
       }
     }
 
@@ -65,7 +65,7 @@ export async function initializeApp() {
         await renderUserProfile();
       } catch (error) {
         console.error('Error rendering user profile:', error);
-        alert('Error rendering user profile. Please try again later.');
+        showAlert('Error rendering user profile. Please try again later.', 'error');
       }
     }
 
@@ -84,10 +84,10 @@ export async function initializeApp() {
           editPostForm.addEventListener('submit', onUpdatePost);
         } catch (error) {
           console.error('Error loading post data for editing:', error);
-          alert('Error loading post data for editing. Please try again.');
+          showAlert('Error loading post data for editing. Please try again.', 'error');
         }
       } else {
-        alert('No post ID found. Cannot load post for editing.');
+        showAlert('No post ID found. Cannot load post for editing.', 'warning');
       }
     }
 
@@ -97,7 +97,7 @@ export async function initializeApp() {
       if (query) {
         renderPosts(1, 'created', 'desc', query).finally(() => hideSpinner());
       } else {
-        alert('Please enter a search term.');
+        showAlert('Please enter a search term.', 'error');
         hideSpinner();
       }
     });
@@ -111,8 +111,8 @@ export async function initializeApp() {
     hideSpinner();
   } catch (error) {
     console.error('Error initializing application:', error);
-    alert(
-      'An error occurred while initializing the application. Please try again.'
+    showAlert(
+      'An error occurred while initializing the application. Please try again.', 'error'
     );
     hideSpinner();
   }
