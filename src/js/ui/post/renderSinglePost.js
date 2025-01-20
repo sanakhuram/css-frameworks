@@ -4,7 +4,6 @@ import { getLoggedInUser } from "../../api/auth.js";
 import { handleDeletePost } from "./delete.js";
 import { postComment, toggleReaction } from "../../api/post/postActions.js";
 import { showAlert } from "../../utilities/alert.js";
-import { showSpinner, hideSpinner } from "../../utilities/spinner.js";
 /**
  * Utility function to disable/enable buttons and update text.
  *
@@ -124,7 +123,7 @@ export async function renderSinglePost() {
       "<p class='text-red-500'>Post ID not found. Please select a post.</p>";
     return;
   }
-  showSpinner();
+  
   try {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${postId}?_author=true&_comments=true&_reactions=true`,
@@ -204,7 +203,6 @@ export async function renderSinglePost() {
       <p class='text-red-500'>An error occurred while loading the post. Please try again later.</p>
       <button onclick="location.reload()" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-lightBlue">Retry</button>
     `;
-  } finally {
-    hideSpinner();
+  } 
   }
-}
+
