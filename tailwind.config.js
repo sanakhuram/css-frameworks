@@ -6,11 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkBlue: '#2B2D42', // Dark Blue
-        lightBlue: '#8D99AE', // Light Blue
-        lightGray: '#EDF2F4', // Light Gray
-        red: '#EF233C', // Bright Red
-        darkRed: '#D90429', // Dark Red
+        darkBlue: '#2B2D42',
+        lightBlue: '#8D99AE',
+        lightGray: '#EDF2F4',
+        red: '#EF233C',
+        darkRed: '#D90429',
       },
       fontFamily: {
         sans: ['Inter', 'Roboto', 'Arial', 'sans-serif'],
@@ -25,12 +25,17 @@ module.exports = {
         'soft-dark': '0 2px 8px rgba(0, 0, 0, 0.4)',
       },
       keyframes: {
+        slideIn: {
+          from: { transform: 'translateX(50px)', opacity: '0' },
+          to: { transform: 'translateX(0)', opacity: '1' },
+        },
         writing: {
           '0%, 100%': { transform: 'translateX(0)' },
           '50%': { transform: 'translateX(10px)' },
         },
       },
       animation: {
+        slideIn: 'slideIn 0.3s ease-in-out',
         writing: 'writing 0.8s ease-in-out infinite',
       },
     },
