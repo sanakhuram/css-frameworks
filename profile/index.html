@@ -6,10 +6,10 @@
     <title>Social Media App | Profile Page</title>
     <script type="module" src="/src/app.js"></script>
     <link rel="stylesheet" href="/src/css/style.css" />
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-  rel="stylesheet"
-/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <link
       rel="icon"
@@ -21,61 +21,84 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
-</head>
-  <body class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans"> 
-<div class="bg-darkBlue">
-<div class="flex justify-end p-2">
-  <button
-    id="themeToggle"
-    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
-    aria-label="Toggle Theme"
+  </head>
+  <body
+    class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans"
   >
-    <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
-  </button>
-</div>
+    <div class="bg-darkBlue">
+      <div class="flex justify-end p-2">
+        <button
+          id="themeToggle"
+          class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
+          aria-label="Toggle Theme"
+        >
+          <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
+        </button>
+      </div>
 
-<div class="flex justify-center">
-  <a href="/" class="block">
-    <img
-      src="/images/logo1.gif"
-      alt="Logo"
-      class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
-    />
-  </a>
-</div>
-</div>
-    <header class="w-full bg-darkBlue text-lightGray shadow-red-glow  dark:bg-lightBlue">
-      <div id="alertContainer" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"></div>
-      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+      <div class="flex justify-center">
+        <a href="/" class="block">
+          <img
+            src="/images/logo1.gif"
+            alt="Logo"
+            class="h-24 w-auto sm:h-28 md:h-32 lg:h-36 xl:h-40"
+          />
+        </a>
+      </div>
+    </div>
+    <header
+      class="w-full bg-darkBlue text-lightGray shadow-red-glow dark:bg-lightBlue"
+    >
+      <div
+        id="alertContainer"
+        class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
+      ></div>
+      <div
+        class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4"
+      >
         <nav class="flex gap-6 text-sm md:text-base">
-          <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+          <a
+            href="/"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
+          >
             <i class="fas fa-home text-lg"></i>
             <span class="text-xs sm:text-sm md:block hidden">Home</span>
           </a>
-          <a href="/profile/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+          <a
+            href="/profile/"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
+          >
             <i class="fas fa-user text-lg"></i>
             <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
           </a>
-          <a href="/auth/login/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+          <a
+            href="/auth/login/"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
+          >
             <i class="fas fa-sign-in-alt text-lg"></i>
             <span class="text-xs sm:text-sm md:block hidden">Login</span>
           </a>
-          <button id="logoutBtn" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+          <button
+            id="logoutBtn"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
+          >
             <i class="fas fa-sign-out-alt text-lg"></i>
             <span class="text-xs sm:text-sm md:block hidden">Logout</span>
           </button>
         </nav>
         <div>
-        <a href="/post/create/"
-          class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark">
-          <i class="fas fa-pencil-alt"></i>
-          <span>Create Post</span>
-        </a>
+          <a
+            href="/post/create/"
+            class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Create Post</span>
+          </a>
         </div>
       </div>
     </header>
 
-    <main class="mt-10 max-w-5xl mx-auto px-4 ">
+    <main class="mt-10 max-w-5xl mx-auto px-4">
       <div class="bg-white p-8 rounded-lg dark:bg-lightBlue shadow-red-yellow">
         <h1 class="text-2xl font-bold mb-6 text-center p-4">My Profile</h1>
         <div class="profile-card text-center">
@@ -106,76 +129,104 @@
             </button>
           </div>
 
-  <form id="updateProfileForm" class="profile-form mt-8 space-y-4 text-left mx-auto max-w-sm">
-  <div class="relative">
-    <label for="avatar" class="block text-sm font-medium text-darkBlue mb-1">Avatar:</label>
-    <div class="relative">
-      <i class="fas fa-image absolute left-3 top-2.5 text-gray-400"></i>
-      <input
-        type="text"
-        id="avatar"
-        name="avatar"
-        placeholder="Image URL"
-        class="block w-full pl-10 border border-gray-300 rounded-md shadow-soft-dark focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
-      />
-    </div>
-  </div>
-  <div class="relative">
-    <label for="name" class="block text-sm font-medium text-darkBlue mb-1">Name:</label>
-    <div class="relative">
-      <i class="fas fa-user absolute left-3 top-2.5 text-gray-400"></i>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Enter your name"
-        required
-        class="block w-full pl-10 border border-gray-300 rounded-md shadow-soft-dark focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
-      />
-    </div>
-  </div>
-  <div class="relative">
-    <label for="bio" class="block text-sm font-medium text-darkBlue mb-1 ">Bio:</label>
-    <div class="relative">
-      <i class="fas fa-pen-alt absolute left-3 top-2.5 text-gray-400"></i>
-      <textarea
-        id="bio"
-        name="bio"
-        placeholder="Tell us about yourself..."
-        class="block w-full pl-10 border border-gray-300 rounded-md focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm shadow-soft-dark"
-      ></textarea>
-    </div>
-  </div>
-  <button
-    type="submit"
-    class="w-full bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2 shadow-soft-dark text-sm"
-  >
-    Update Profile
-  </button>
-</form>
+          <form
+            id="updateProfileForm"
+            class="profile-form mt-8 space-y-4 text-left mx-auto max-w-sm"
+          >
+            <div class="relative">
+              <label
+                for="avatar"
+                class="block text-sm font-medium text-darkBlue mb-1"
+                >Avatar:</label
+              >
+              <div class="relative">
+                <i
+                  class="fas fa-image absolute left-3 top-2.5 text-gray-400"
+                ></i>
+                <input
+                  type="text"
+                  id="avatar"
+                  name="avatar"
+                  placeholder="Image URL"
+                  class="block w-full pl-10 border border-gray-300 rounded-md shadow-soft-dark focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
+                />
+              </div>
+            </div>
+            <div class="relative">
+              <label
+                for="name"
+                class="block text-sm font-medium text-darkBlue mb-1"
+                >Name:</label
+              >
+              <div class="relative">
+                <i
+                  class="fas fa-user absolute left-3 top-2.5 text-gray-400"
+                ></i>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required
+                  class="block w-full pl-10 border border-gray-300 rounded-md shadow-soft-dark focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm"
+                />
+              </div>
+            </div>
+            <div class="relative">
+              <label
+                for="bio"
+                class="block text-sm font-medium text-darkBlue mb-1"
+                >Bio:</label
+              >
+              <div class="relative">
+                <i
+                  class="fas fa-pen-alt absolute left-3 top-2.5 text-gray-400"
+                ></i>
+                <textarea
+                  id="bio"
+                  name="bio"
+                  placeholder="Tell us about yourself..."
+                  class="block w-full pl-10 border border-gray-300 rounded-md focus:ring-red focus:border-red placeholder-gray-400 py-2 text-sm shadow-soft-dark"
+                ></textarea>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-red text-lightGray py-2 px-4 rounded-md hover:bg-darkRed focus:outline-none focus:ring-2 focus:ring-red focus:ring-offset-2 shadow-soft-dark text-sm"
+            >
+              Update Profile
+            </button>
+          </form>
 
-      <h2 class="text-xl font-semibold mt-10">My Posts</h2>
+          <h2 class="text-xl font-semibold mt-10">My Posts</h2>
           <div id="postContainer" class="posts-container mt-4"></div>
         </div>
       </div>
     </main>
-    <a href="#top" id="backToTopBtn" title="back to top"
-      class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
-      aria-label="Back to Top"
+    <button>
+      <a
+        href="#top"
+        id="backToTopBtn"
+        title="back to top"
+        class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
+        aria-label="Back to Top"
+      >
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </button>
+    <footer
+      class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue"
     >
-      <i class="fas fa-arrow-up"></i>
-    </a></button>
-    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue">
-<div class="max-w-5xl mx-auto text-center">
-  &copy; 2025 Social Media App by 
-  <a 
-    href="https://github.com/sanakhuram"
-    target="_blank" 
-    class="text-red hover:underline"
-  >
-    Sana Khuram 🐞
-  </a>
-</div>
+      <div class="max-w-5xl mx-auto text-center">
+        &copy; 2025 Social Media App by
+        <a
+          href="https://github.com/sanakhuram"
+          target="_blank"
+          class="text-red hover:underline"
+        >
+          Sana Khuram 🐞
+        </a>
+      </div>
     </footer>
   </body>
 </html>
