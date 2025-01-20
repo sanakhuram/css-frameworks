@@ -21,6 +21,7 @@
     
   </head>
 <body class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans">
+  <div id="alertContainer" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"></div>
 <div class="bg-darkBlue">
 <div class="flex justify-end p-2">
   <button
@@ -80,11 +81,15 @@
     </div>
   </div>
 </header>
-    <main class="mt-10 max-w-5xl mx-auto px-4">
-      <section id="singlePostContainer" class="postContainer">
-        <p>Loading post...</p>  
-      </section>
-    </main>
+<main class="mt-10 max-w-5xl mx-auto px-4">
+  <section id="singlePostContainer" class="postContainer">
+    <p>Loading....</p>
+      <div id="spinner" class="flex justify-center items-center">
+  <img src="/images/loader.png" alt="Loading..." class="w-12 h-12 animate-spin" />
+</div>
+  </section>
+</main>
+
     <a href="#top" id="backToTopBtn" title="back to top"
       class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
       aria-label="Back to Top"
