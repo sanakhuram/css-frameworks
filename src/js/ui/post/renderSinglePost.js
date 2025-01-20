@@ -3,7 +3,8 @@ import { headers } from '../../api/headers.js';
 import { getLoggedInUser } from '../../api/auth.js';
 import { handleDeletePost } from './delete.js';
 import { postComment, toggleReaction } from '../../api/post/postActions.js';
-
+import { showAlert } from '../../utilities/alert.js';
+import { showSpinner,hideSpinner } from '../../utilities/spinner.js';
 /**
  * Utility function to disable/enable buttons and update text.
  *
@@ -58,7 +59,7 @@ async function handleCommentSubmission(event, postId) {
   const commentText = document.getElementById('commentText').value.trim();
 
   if (!commentText) {
-    alert('Please enter a comment.');
+    showAlert('Please enter a comment.', 'error');
     return;
   }
 
@@ -69,7 +70,7 @@ async function handleCommentSubmission(event, postId) {
     await postComment(postId, commentText);
     renderSinglePost();
   } catch (error) {
-    alert('Error posting comment. Please try again.');
+    showAlert('Error posting comment. Please try again.','post');
   } finally {
     toggleButtonState(submitButton, false, 'Submitting...', 'Submit');
   }
@@ -89,15 +90,20 @@ async function handleReactionToggle(postId) {
     const totalReactions = calculateTotalReactions(
       updatedReactions.data.reactions
     );
+
     document.getElementById('likeCount').textContent =
       `${totalReactions} Likes`;
+
+    showAlert('Reaction updated successfully!', 'success');
   } catch (error) {
     console.error('Error toggling reaction:', error);
-    alert('Error toggling reaction. Please try again.');
+
+    showAlert('Error toggling reaction. Please try again.', 'error');
   } finally {
     toggleButtonState(likeButton, false, 'Processing...', '👍');
   }
 }
+
 
 /**
  * Renders a single post on the page.
@@ -106,6 +112,7 @@ async function handleReactionToggle(postId) {
  * @function renderSinglePost
  * @throws Will throw an error if the post data cannot be fetched.
  */
+
 export async function renderSinglePost() {
   const singlePostContainer = document.getElementById('singlePostContainer');
   if (!singlePostContainer) return;
@@ -118,7 +125,7 @@ export async function renderSinglePost() {
       "<p class='text-red-500'>Post ID not found. Please select a post.</p>";
     return;
   }
-
+showSpinner()
   try {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${postId}?_author=true&_comments=true&_reactions=true`,
@@ -175,10 +182,10 @@ export async function renderSinglePost() {
         .addEventListener('click', async () => {
           try {
             await handleDeletePost(post.id);
-            alert('Post deleted successfully.');
+            showAlert('Post deleted successfully.','success');
             window.location.href = '/';
           } catch (error) {
-            alert('Failed to delete post.');
+            showAlert('Failed to delete post.','failed');
           }
         });
     }
@@ -198,5 +205,9 @@ export async function renderSinglePost() {
       <p class='text-red-500'>An error occurred while loading the post. Please try again later.</p>
       <button onclick="location.reload()" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-lightBlue">Retry</button>
     `;
+  
+    } finally {
+    hideSpinner();
   }
+
 }

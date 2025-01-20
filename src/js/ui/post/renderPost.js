@@ -17,7 +17,6 @@ export async function renderPosts(
   const postFeed = document.getElementById("postFeed");
   const paginationContainer = document.getElementById("pagination");
 
-  // Show loading spinner
   postFeed.innerHTML = `
     <div class="flex justify-center items-center py-4">
       <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-red-500 border-solid"></div>
