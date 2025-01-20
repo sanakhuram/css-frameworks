@@ -1,11 +1,15 @@
+import { showAlert } from "../utilities/alert";
+
 /**
  * Logs out the user by clearing stored session data.
  */
 export function logout() {
   localStorage.removeItem("username");
   localStorage.removeItem("token");
-  alert("You have been logged out.");
-  window.location.href = "/auth/login/";
+  showAlert("You have been logged out.", "warning");
+  setTimeout(() => {
+    window.location.href = "/auth/login/";
+  }, 1500); 
 }
 
 /**
