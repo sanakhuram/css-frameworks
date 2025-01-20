@@ -26,6 +26,10 @@
   <body
     class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col dark:bg-darkBlue dark:text-lightBlue"
   >
+   <div
+      id="alertContainer"
+      class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
+    ></div>
     <div class="bg-darkBlue">
       <div class="flex justify-end p-2">
         <button
@@ -94,16 +98,12 @@
         </div>
       </div>
     </header>
-    <div
-      id="alertContainer"
-      class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
-    ></div>
-    <main class="flex-1 mt-10 max-w-5xl mx-auto px-4">
-      <div class="bg-white p-8 rounded-lg shadow-red-yellow">
+    <main class="flex-1 flex justify-center items-center px-4 py-6">
+    <div class="bg-white p-10 rounded-lg shadow-red-yellow w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5">
         <h1 class="text-2xl font-bold mb-6 text-center p-4 text-darkBlue">
           Edit Post
         </h1>
-        <form id="editPostForm" class="space-y-6 sm:space-y-4">
+        <form id="editPostForm" class="space-y-6 sm:space-y-4 ">
           <div>
             <label
               for="editPostTitleForm"
