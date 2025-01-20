@@ -1,5 +1,6 @@
 import { updatePost } from "../../api/post/update.js";
 import { getPostById } from "../../api/post/get.js";
+import { showAlert } from "../../utilities/alert.js";
 
 /**
  * Utility function to get form field value with optional trimming and fallback.
@@ -27,7 +28,7 @@ export async function loadPostData(postId) {
       ", ",
     );
   } catch {
-    alert("Could not load the post data for editing.");
+    showAlert("Could not load the post data for editing.",'error');
   }
 }
 
@@ -40,7 +41,7 @@ export async function onUpdatePost(event) {
 
   const postId = event.target.dataset.postId;
   if (!postId) {
-    alert("Failed to update post: Missing post ID");
+    showAlert("Failed to update post: Missing post ID",'error');
     return;
   }
 
@@ -62,10 +63,10 @@ export async function onUpdatePost(event) {
   try {
     const updatedPost = await updatePost(postId, postData);
     if (updatedPost) {
-      alert("Post updated successfully!");
+      showAlert("Post updated successfully!",'success');
       window.location.href = `/post/?id=${postId}`;
     }
   } catch (error) {
-    alert("Failed to update post: " + (error.message || "Unknown error"));
+    showAlert("Failed to update post: " + (error.message || "Unknown error"),'error');
   }
 }

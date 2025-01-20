@@ -1,4 +1,5 @@
 import { deletePost } from "../../api/post/delete.js";
+import { showAlert } from "../../utilities/alert.js";
 
 /**
  * Handles deletion of a post and updates the UI.
@@ -11,14 +12,14 @@ export async function handleDeletePost(postId) {
     const result = await deletePost(postId);
 
     if (result.success) {
-      alert("Post deleted successfully!");
+      showAlert("Post deleted successfully!",'success');
       document.getElementById(`post-${postId}`)?.remove();
     } else {
-      alert(`Failed to delete post: ${result.message}`);
+      showAlert(`Failed to delete post: ${result.message}`,'error');
     }
   } catch {
-    alert(
-      "An error occurred while trying to delete the post. Please try again.",
+    showAlert(
+      "An error occurred while trying to delete the post. Please try again.","error",
     );
   }
 }

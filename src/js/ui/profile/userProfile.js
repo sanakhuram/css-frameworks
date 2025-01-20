@@ -1,6 +1,7 @@
 import { API_SOCIAL_PROFILES } from "../../api/constants.js";
 import { headers } from "../../api/headers.js";
 import { onFollowToggle } from "../../api/profile/follow.js";
+import { showAlert } from "../../utilities/alert.js";
 
 /**
  * Fetch and render the user's profile and posts.
@@ -85,7 +86,7 @@ function setupFollowButton(username, followers) {
         ? currentFollowerCount + 1
         : currentFollowerCount - 1;
     } catch {
-      alert("Failed to update follow status. Please try again.");
+      showAlert("Failed to update follow status. Please try again.",'error');
       followButton.textContent = originalText;
     } finally {
       followButton.disabled = false;
