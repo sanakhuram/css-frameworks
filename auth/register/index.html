@@ -7,9 +7,10 @@
     <script type="module" src="/src/app.js"></script>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="icon"
       type="image/png"
@@ -21,33 +22,45 @@
       rel="stylesheet"
     />
   </head>
-  <body class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col  dark:bg-darkBlue">
-<div class="bg-darkBlue">
-<div class="flex justify-end p-2">
-  <button
-    id="themeToggle"
-    class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
-    aria-label="Toggle Theme"
+  <body
+    class="bg-lightGray text-darkBlue font-sans min-h-screen flex flex-col dark:bg-darkBlue"
   >
-    <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
-  </button>
-</div>
+    <div class="bg-darkBlue">
+      <div class="flex justify-end p-2">
+        <button
+          id="themeToggle"
+          class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
+          aria-label="Toggle Theme"
+        >
+          <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
+        </button>
+      </div>
 
-<div class="flex justify-center">
-  <a href="/" class="block">
-    <img
-      src="/images/logo1.gif"
-      alt="Logo"
-      class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
-    />
-  </a>
-</div>
-</div>
-    <header class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow sticky top-0 z-50">
-      <div id="alertContainer" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"></div>
-      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4">
+      <div class="flex justify-center">
+        <a href="/" class="block">
+          <img
+            src="/images/logo1.gif"
+            alt="Logo"
+            class="h-16 w-auto sm:h-20 md:h-24 lg:h-32 xl:h-36"
+          />
+        </a>
+      </div>
+    </div>
+    <header
+      class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow sticky top-0 z-50"
+    >
+      <div
+        id="alertContainer"
+        class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
+      ></div>
+      <div
+        class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4"
+      >
         <nav class="flex gap-6 text-sm md:text-base">
-          <a href="/" class="flex flex-col items-center gap-1 hover:text-yellow-400">
+          <a
+            href="/"
+            class="flex flex-col items-center gap-1 hover:text-yellow-400"
+          >
             <i class="fas fa-home text-lg"></i>
             <span class="text-xs sm:text-sm md:block hidden">Home</span>
           </a>
@@ -74,23 +87,24 @@
           </button>
         </nav>
         <div>
-        <a href="/post/create/"
-          class="bg-red text-lightGray py-2 shadow-soft-dark px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2">
-          <i class="fas fa-pencil-alt"></i>
-          <span>Create Post</span>
-        </a>
+          <a
+            href="/post/create/"
+            class="bg-red text-lightGray py-2 shadow-soft-dark px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Create Post</span>
+          </a>
         </div>
       </div>
     </header>
 
     <main class="flex-grow flex items-center justify-center">
-      <div class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-red-yellow sm:p-8 dark:bg-lightBlue">
+      <div
+        class="bg-white p-6 max-w-md w-full mx-auto rounded-lg shadow-red-yellow sm:p-8 dark:bg-lightBlue"
+      >
         <form name="register" class="space-y-6 sm:space-y-4">
           <div>
-            <label
-              for="name"
-              class="block text-sm font-medium text-gray-700"
-            >
+            <label for="name" class="block text-sm font-medium text-gray-700">
               Name
             </label>
             <div class="relative mt-1">
@@ -110,14 +124,13 @@
 
           <!-- Email Field -->
           <div>
-            <label
-              for="email"
-              class="block text-sm font-medium text-gray-700"
-            >
+            <label for="email" class="block text-sm font-medium text-gray-700">
               Email
             </label>
             <div class="relative mt-1">
-              <i class="fas fa-envelope absolute left-3 top-2.5 text-gray-400"></i>
+              <i
+                class="fas fa-envelope absolute left-3 top-2.5 text-gray-400"
+              ></i>
               <input
                 id="email"
                 type="email"
@@ -171,7 +184,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full bg-darkBlue text-lightGray py-4 fixed bottom-0 left-0 z-50 text-sm  dark:bg-lightBlue">
+    <footer
+      class="w-full bg-darkBlue text-lightGray py-4 fixed bottom-0 left-0 z-50 text-sm dark:bg-lightBlue"
+    >
       <div class="max-w-5xl mx-auto text-center">
         &copy; 2025 Social Media App by
         <a

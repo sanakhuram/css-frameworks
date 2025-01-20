@@ -86,7 +86,7 @@ function setupFollowButton(username, followers) {
         ? currentFollowerCount + 1
         : currentFollowerCount - 1;
     } catch {
-      showAlert("Failed to update follow status. Please try again.",'error');
+      showAlert("Failed to update follow status. Please try again.", "error");
       followButton.textContent = originalText;
     } finally {
       followButton.disabled = false;
@@ -101,7 +101,14 @@ function setupFollowButton(username, followers) {
 function renderUserPosts(posts) {
   const authorPosts = document.getElementById("authorPosts");
   authorPosts.innerHTML = "";
-authorPosts.classList.add("grid", "grid-cols-1", "sm:grid-cols-3", "lg:grid-cols-30", "gap-4", "p-4")
+  authorPosts.classList.add(
+    "grid",
+    "grid-cols-1",
+    "sm:grid-cols-3",
+    "lg:grid-cols-30",
+    "gap-4",
+    "p-4",
+  );
   if (!posts || posts.length === 0) {
     authorPosts.innerHTML = "<p class='test-gray-500'>No posts to display.</p>";
     return;
@@ -109,7 +116,17 @@ authorPosts.classList.add("grid", "grid-cols-1", "sm:grid-cols-3", "lg:grid-cols
 
   posts.forEach((post) => {
     const postElement = document.createElement("div");
-    postElement.classList.add("post", "p-4", "rounded-lg","border" ,"border-gray-400", "bg-white" ,"shadow-red-yellow", "hover:bg-blue-100", "transition");
+    postElement.classList.add(
+      "post",
+      "p-4",
+      "rounded-lg",
+      "border",
+      "border-gray-400",
+      "bg-white",
+      "shadow-red-yellow",
+      "hover:bg-blue-100",
+      "transition",
+    );
 
     const postImage = post.media?.url
       ? `<img src="${post.media.url}" alt="${

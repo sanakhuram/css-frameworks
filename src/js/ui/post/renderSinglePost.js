@@ -1,10 +1,10 @@
-import { API_SOCIAL_POSTS } from '../../api/constants.js';
-import { headers } from '../../api/headers.js';
-import { getLoggedInUser } from '../../api/auth.js';
-import { handleDeletePost } from './delete.js';
-import { postComment, toggleReaction } from '../../api/post/postActions.js';
-import { showAlert } from '../../utilities/alert.js';
-import { showSpinner,hideSpinner } from '../../utilities/spinner.js';
+import { API_SOCIAL_POSTS } from "../../api/constants.js";
+import { headers } from "../../api/headers.js";
+import { getLoggedInUser } from "../../api/auth.js";
+import { handleDeletePost } from "./delete.js";
+import { postComment, toggleReaction } from "../../api/post/postActions.js";
+import { showAlert } from "../../utilities/alert.js";
+import { showSpinner, hideSpinner } from "../../utilities/spinner.js";
 /**
  * Utility function to disable/enable buttons and update text.
  *
@@ -40,11 +40,11 @@ function renderComments(comments = []) {
       .map(
         (comment) => `
       <div class="comment border-b border-gray-300 pb-2 mb-2">
-        <p><strong>${comment.owner || 'Anonymous'}:</strong> ${comment.body}</p>
+        <p><strong>${comment.owner || "Anonymous"}:</strong> ${comment.body}</p>
         <small>Posted on: ${new Date(comment.created).toLocaleString()}</small>
-      </div>`
+      </div>`,
       )
-      .join('') || "<p class='text-gray-500'>No comments available</p>"
+      .join("") || "<p class='text-gray-500'>No comments available</p>"
   );
 }
 
@@ -56,23 +56,23 @@ function renderComments(comments = []) {
  */
 async function handleCommentSubmission(event, postId) {
   event.preventDefault();
-  const commentText = document.getElementById('commentText').value.trim();
+  const commentText = document.getElementById("commentText").value.trim();
 
   if (!commentText) {
-    showAlert('Please enter a comment.', 'error');
+    showAlert("Please enter a comment.", "error");
     return;
   }
 
   const submitButton = event.target.querySelector("button[type='submit']");
-  toggleButtonState(submitButton, true, 'Submitting...', 'Submit');
+  toggleButtonState(submitButton, true, "Submitting...", "Submit");
 
   try {
     await postComment(postId, commentText);
     renderSinglePost();
   } catch (error) {
-    showAlert('Error posting comment. Please try again.','post');
+    showAlert("Error posting comment. Please try again.", "post");
   } finally {
-    toggleButtonState(submitButton, false, 'Submitting...', 'Submit');
+    toggleButtonState(submitButton, false, "Submitting...", "Submit");
   }
 }
 
@@ -82,28 +82,27 @@ async function handleCommentSubmission(event, postId) {
  * @param {string} postId - The ID of the post being reacted to.
  */
 async function handleReactionToggle(postId) {
-  const likeButton = document.getElementById('likeButton');
-  toggleButtonState(likeButton, true, 'Processing...', '👍');
+  const likeButton = document.getElementById("likeButton");
+  toggleButtonState(likeButton, true, "Processing...", "👍");
 
   try {
-    const updatedReactions = await toggleReaction(postId, '👍');
+    const updatedReactions = await toggleReaction(postId, "👍");
     const totalReactions = calculateTotalReactions(
-      updatedReactions.data.reactions
+      updatedReactions.data.reactions,
     );
 
-    document.getElementById('likeCount').textContent =
+    document.getElementById("likeCount").textContent =
       `${totalReactions} Likes`;
 
-    showAlert('Reaction updated successfully!', 'success');
+    showAlert("Reaction updated successfully!", "success");
   } catch (error) {
-    console.error('Error toggling reaction:', error);
+    console.error("Error toggling reaction:", error);
 
-    showAlert('Error toggling reaction. Please try again.', 'error');
+    showAlert("Error toggling reaction. Please try again.", "error");
   } finally {
-    toggleButtonState(likeButton, false, 'Processing...', '👍');
+    toggleButtonState(likeButton, false, "Processing...", "👍");
   }
 }
-
 
 /**
  * Renders a single post on the page.
@@ -114,36 +113,36 @@ async function handleReactionToggle(postId) {
  */
 
 export async function renderSinglePost() {
-  const singlePostContainer = document.getElementById('singlePostContainer');
+  const singlePostContainer = document.getElementById("singlePostContainer");
   if (!singlePostContainer) return;
 
   const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get('id');
+  const postId = urlParams.get("id");
 
   if (!postId) {
     singlePostContainer.innerHTML =
       "<p class='text-red-500'>Post ID not found. Please select a post.</p>";
     return;
   }
-showSpinner()
+  showSpinner();
   try {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${postId}?_author=true&_comments=true&_reactions=true`,
-      { method: 'GET', headers: headers() }
+      { method: "GET", headers: headers() },
     );
-    if (!response.ok) throw new Error('Failed to fetch post data.');
+    if (!response.ok) throw new Error("Failed to fetch post data.");
 
     const { data: post } = await response.json();
 
     const user = getLoggedInUser();
     const isAuthor = post.author?.name === user?.username;
-    const tags = post.tags?.length ? post.tags.join(', ') : 'No tags';
+    const tags = post.tags?.length ? post.tags.join(", ") : "No tags";
     const commentsHTML = renderComments(post.comments);
     const reactionsCount = calculateTotalReactions(post.reactions);
 
     const authorLink = `
       <a href="/profile/userprofile?username=${post.author?.name}" class="text-darkRed hover:underline">
-        ${post.author?.name || 'Unknown Author'}
+        ${post.author?.name || "Unknown Author"}
       </a>
     `;
 
@@ -152,14 +151,14 @@ showSpinner()
         <button onclick="location.href='/post/edit/?id=${post.id}'" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-red shadow-soft-dark">Edit</button>
         <button id="deletePostButton" class="bg-red text-white px-4 py-2 rounded hover:bg-red-600 shadow-red-yellow">Delete</button>
         </div>`
-      : '';
+      : "";
 
     singlePostContainer.innerHTML = `
       <article id="post-${post.id}" class="post bg-white p-4 rounded shadow-red-glow border-darkBlue dark:bg-lightBlue dark:text-darkBlue">
-        <h1 class="text-2xl font-bold mb-4 text-center text-darkBlue ">${post.title || 'Untitled Post'}</h1>
-        <p class="mb-4 text-center py-2 text-darkBlue">${post.body || 'No content available'}</p>
+        <h1 class="text-2xl font-bold mb-4 text-center text-darkBlue ">${post.title || "Untitled Post"}</h1>
+        <p class="mb-4 text-center py-2 text-darkBlue">${post.body || "No content available"}</p>
         <img src="${
-          post.media?.url || '/images/default-image.jpg'
+          post.media?.url || "/images/default-image.jpg"
         }" alt="Post Image" class="w-full rounded mb-4 text-darkBlue shadow-yellow-glow border border-gray-400">
         <p class:"text-darkBlue"><strong>Tags:</strong> ${tags}</p>
         <p><strong>Author:</strong> ${authorLink}</p>
@@ -178,36 +177,34 @@ showSpinner()
 
     if (isAuthor) {
       document
-        .getElementById('deletePostButton')
-        .addEventListener('click', async () => {
+        .getElementById("deletePostButton")
+        .addEventListener("click", async () => {
           try {
             await handleDeletePost(post.id);
-            showAlert('Post deleted successfully.','success');
-            window.location.href = '/';
+            showAlert("Post deleted successfully.", "success");
+            window.location.href = "/";
           } catch (error) {
-            showAlert('Failed to delete post.','failed');
+            showAlert("Failed to delete post.", "failed");
           }
         });
     }
 
     document
-      .getElementById('commentForm')
-      .addEventListener('submit', (event) =>
-        handleCommentSubmission(event, postId)
+      .getElementById("commentForm")
+      .addEventListener("submit", (event) =>
+        handleCommentSubmission(event, postId),
       );
 
     document
-      .getElementById('likeButton')
-      .addEventListener('click', () => handleReactionToggle(postId));
+      .getElementById("likeButton")
+      .addEventListener("click", () => handleReactionToggle(postId));
   } catch (error) {
-    console.error('Error rendering single post:', error);
+    console.error("Error rendering single post:", error);
     singlePostContainer.innerHTML = `
       <p class='text-red-500'>An error occurred while loading the post. Please try again later.</p>
       <button onclick="location.reload()" class="bg-darkBlue text-white px-4 py-2 rounded hover:bg-lightBlue">Retry</button>
     `;
-  
-    } finally {
+  } finally {
     hideSpinner();
   }
-
 }

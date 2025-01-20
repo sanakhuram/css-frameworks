@@ -28,7 +28,7 @@ export async function loadPostData(postId) {
       ", ",
     );
   } catch {
-    showAlert("Could not load the post data for editing.",'error');
+    showAlert("Could not load the post data for editing.", "error");
   }
 }
 
@@ -41,7 +41,7 @@ export async function onUpdatePost(event) {
 
   const postId = event.target.dataset.postId;
   if (!postId) {
-    showAlert("Failed to update post: Missing post ID",'error');
+    showAlert("Failed to update post: Missing post ID", "error");
     return;
   }
 
@@ -63,10 +63,13 @@ export async function onUpdatePost(event) {
   try {
     const updatedPost = await updatePost(postId, postData);
     if (updatedPost) {
-      showAlert("Post updated successfully!",'success');
+      showAlert("Post updated successfully!", "success");
       window.location.href = `/post/?id=${postId}`;
     }
   } catch (error) {
-    showAlert("Failed to update post: " + (error.message || "Unknown error"),'error');
+    showAlert(
+      "Failed to update post: " + (error.message || "Unknown error"),
+      "error",
+    );
   }
 }

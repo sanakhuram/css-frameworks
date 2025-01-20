@@ -12,14 +12,15 @@ export async function handleDeletePost(postId) {
     const result = await deletePost(postId);
 
     if (result.success) {
-      showAlert("Post deleted successfully!",'success');
+      showAlert("Post deleted successfully!", "success");
       document.getElementById(`post-${postId}`)?.remove();
     } else {
-      showAlert(`Failed to delete post: ${result.message}`,'error');
+      showAlert(`Failed to delete post: ${result.message}`, "error");
     }
   } catch {
     showAlert(
-      "An error occurred while trying to delete the post. Please try again.","error",
+      "An error occurred while trying to delete the post. Please try again.",
+      "error",
     );
   }
 }
