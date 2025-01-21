@@ -13,7 +13,7 @@ module.exports = {
         darkRed: "#D90429",
       },
       fontFamily: {
-        sans: ["Poppins", "Arial", "sans-serif"], // Replace Inter/Roboto with Poppins
+        sans: ["Poppins", "Arial", "sans-serif"],
         serif: ["Playfair Display", "Georgia", "serif"],
         mono: ["Fira Code", "Courier New", "monospace"],
       },

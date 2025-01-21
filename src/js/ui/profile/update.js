@@ -35,6 +35,7 @@ export async function initializeProfilePage() {
  */
 function updateProfileUI(profileData) {
   document.getElementById("profileAvatar").src =
+    
     profileData.avatar?.url || "/images/default-avatar.png";
   document.getElementById("profileName").textContent =
     profileData.name || "Your Name";
@@ -114,8 +115,8 @@ function renderUserPosts(posts) {
 
     postElement.innerHTML = `
       ${postImage}
-      <h3 class="text-lg font-semibold mb-2">${post.title}</h3>
-      <p class="text-gray-700 mb-4 line-clamp-3">${post.body}</p>
+      <h3 class="text-lg font-semibold mb-2 dark:text-darkBlue">${post.title}</h3>
+      <p class="text-gray-700 mb-4 line-clamp-3 text-sm">${post.body}</p>
       <small class="text-gray-500 mb-4">Posted on: ${new Date(post.created).toLocaleDateString()}</small>
       <a href="/post/?id=${post.id}" class="mt-auto text-red hover:underline">View Post</a>
     `;
