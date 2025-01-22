@@ -50,9 +50,9 @@ export async function onUpdatePost(event) {
     body: getFormFieldValue("editPostContentForm"),
     media: getFormFieldValue("editImageURL")
       ? {
-          url: getFormFieldValue("editImageURL"),
-          alt: getFormFieldValue("editImageAltText"),
-        }
+        url: getFormFieldValue("editImageURL"),
+        alt: getFormFieldValue("editImageAltText"),
+      }
       : undefined,
     tags: getFormFieldValue("editTagsInput")
       .split(",")
@@ -64,12 +64,16 @@ export async function onUpdatePost(event) {
     const updatedPost = await updatePost(postId, postData);
     if (updatedPost) {
       showAlert("Post updated successfully!", "success");
-      window.location.href = `/post/?id=${postId}`;
+ 
+      setTimeout(() => {
+        window.location.href = `/post/?id=${postId}`;
+      }, 2000); 
     }
   } catch (error) {
     showAlert(
       "Failed to update post: " + (error.message || "Unknown error"),
-      "error",
+      "error"
     );
   }
+
 }
