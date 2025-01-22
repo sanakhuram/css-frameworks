@@ -154,3 +154,24 @@ export async function initializeApp() {
     hideSpinner();
   }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    const linkPathname = new URL(
+      link.getAttribute('href'),
+      window.location.origin
+    ).pathname;
+
+    if (window.location.pathname === linkPathname) {
+      link.classList.add(
+        'text-yellow-400',
+        'font-bold'
+      );
+
+      const icon = link.querySelector('i');
+      if (icon) {
+        icon.classList.add('text-yellow-400');
+      }
+    }
+  });
+});
+
