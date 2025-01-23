@@ -65,7 +65,7 @@ This project uses the **Noroff Social Media API**.
 ## **📖 Installation & Setup**
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/css-frameworks.git
+git clone https://github.com/sanakhuram/css-frameworks.git
 cd css-frameworks
 ```
 
