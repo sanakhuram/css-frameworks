@@ -100,13 +100,6 @@ npm run test
 
 ---
 
-## **📜 Roadmap & Future Enhancements**
-🔹 **Dark Mode Improvements**  
-🔹 **Better accessibility & keyboard navigation**  
-🔹 **More Tailwind animations & hover effects**  
-
----
-
 ## **💡 Lessons Learned**
 - **Mastered Tailwind CSS** for faster, scalable UI design  
 - Improved **API handling & authentication** using JWT tokens  
