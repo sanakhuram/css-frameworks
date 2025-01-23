@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Social Media App | Post Page</title>
+    <title>View Post | Sociogram</title>
     <script type="module" src="/src/app.js"></script>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link
@@ -29,28 +29,16 @@
       id="alertContainer"
       class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
     ></div>
-    <div class="bg-darkBlue">
-      <div class="flex justify-end p-2">
-        <button
-          id="themeToggle"
-          class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
-          aria-label="Toggle Theme"
-        >
-          <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
-        </button>
-      </div>
-
-      <div class="flex justify-center">
-        <a href="/" class="block">
-          <img
-            src="/images/logo1.gif"
-            alt="Logo"
-            class="h-24 w-auto sm:h-28 md:h-32 lg:h-36 xl:h-40"
-          />
-        </a>
-      </div>
-    </div>
-    <header
+  <header class="w-full bg-darkBlue flex justify-between items-center px-4 py-3 shadow-md">
+    <a href="/" class="flex items-center">
+      <img src="/images/logo1.gif" alt="Social Media App logo" class="h-16 sm:h-20 w-auto" />
+    </a>
+    
+    <button id="themeToggle" class="bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all">
+      <i id="themeIcon" class="fas fa-sun text-lg"></i>
+    </button>
+  </header>
+    <section
       class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow"
     >
       <div
@@ -96,7 +84,7 @@
           </a>
         </div>
       </div>
-    </header>
+    </section>
     <main class="mt-10 max-w-5xl mx-auto px-4">
       <section id="singlePostContainer" class="postContainer">
         <div id="spinner" class="flex justify-center items-center">

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Discover and share posts on Social Media App. Join our community!">
-    <title>Social Media App</title>
+    <meta name="description" content="Discover and share posts on Sociogram. Join our community!">
+    <title>Sociogram</title>
     <script type="module" src="/src/app.js"></script>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link
@@ -30,28 +30,16 @@
       id="alertContainer"
       class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
     ></div>
-    <div class="bg-darkBlue">
-      <div class="flex justify-end p-2">
-        <button
-          id="themeToggle"
-          class="flex items-center justify-center bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-1 sm:p-2 rounded-full shadow-md transition-all"
-          aria-label="Toggle Theme"
-        >
-          <i id="themeIcon" class="fas fa-sun text-sm sm:text-base"></i>
-        </button>
-      </div>
-
-      <div class="flex justify-center">
-        <a href="/" class="block">
-          <img
-            src="/images/logo1.gif"
-            alt="Social Media App logo"
-            class="h-24 w-auto sm:h-28 md:h-32 lg:h-36 xl:h-40  "
-          />
-        </a>
-      </div>
-    </div>
-    <header
+  <header class="w-full bg-darkBlue flex justify-between items-center px-4 py-3 shadow-md">
+    <a href="/" class="flex items-center">
+      <img src="/images/logo1.gif" alt="Social Media App logo" class="h-16 sm:h-20 w-auto" />
+    </a>
+    
+    <button id="themeToggle" class="bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all">
+      <i id="themeIcon" class="fas fa-sun text-lg"></i>
+    </button>
+  </header>
+    <section
       class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow"
     >
       <div
@@ -75,10 +63,9 @@
     <span class="text-xs sm:text-sm md:block hidden">Logout</span>
   </button>
 </nav>
-
-        <div>
-          <a
-            href="/post/create/"
+<div>
+    <a
+ href="/post/create/"
             class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
           >
             <i class="fas fa-pencil-alt"></i>
@@ -86,14 +73,12 @@
           </a>
         </div>
       </div>
-    </header>
+    </section>
 
     <main class="mt-10 max-w-5xl mx-auto px-4">
       
       <div class="bg-white p-8 rounded-lg dark:bg-lightBlue shadow-red-yellow">
-            <h1 class="text-2xl font-bold text-darkBlue text-center my-10">
-  Welcome to Social Media App
-</h1> 
+            <h1 class="text-2xl font-bold text-darkBlue text-center my-10">Posts</h1>
       <section class="flex flex-wrap gap-4 items-center mb-8">
   <label
           for="sortOrder"
@@ -110,7 +95,7 @@
         </select>
         <button
           id="applySort"
-          class="bg-yellow-500 text-lightGray py-2 px-4 rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
+          class="bg-yellow-500 text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
         >
           <i class="fas fa-filter"></i> Apply
         </button>
