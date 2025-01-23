@@ -33,7 +33,7 @@ Now, the app has a **modern, fully responsive UI** styled with **Tailwind CSS**.
 ✅ **Custom Tailwind Configurations**:
 - Custom **color palette** (darkBlue, lightBlue, red, etc.)
 - Custom **box shadows** for UI enhancements
-- Custom **animations** (glitch text, neon glow, slide-in effects)  
+- Custom **animations** (writing, slide-in effects)  
 
 ### **⚡ Performance & Optimization**
 ✅ **Built with Vite** for fast development  
