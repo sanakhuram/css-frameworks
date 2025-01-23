@@ -14,7 +14,7 @@ The application is a **client-side social media app** that allows users to:
 Now, the app has a **modern, fully responsive UI** styled with **Tailwind CSS**.
 
 ### **🌍 Live Demo**
-🔗 **[View Live App](https://fed-js2-ca-sanakhuram.netlify.app/)**  
+🔗 **[View Live App](https://sociogram-app.netlify.app/)**  
 
 ---
 
