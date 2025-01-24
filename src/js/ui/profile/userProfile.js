@@ -117,15 +117,17 @@ function renderUserPosts(posts) {
   posts.forEach((post) => {
     const postElement = document.createElement("div");
     postElement.classList.add(
-      "post",
-      "p-4",
-      "rounded-lg",
-      "border",
-      "border-gray-400",
-      "bg-white",
-      "shadow-red-yellow",
-      "hover:bg-blue-100",
-      "transition",
+      'post',
+      'p-4',
+      'rounded-lg',
+      'border',
+      'border-gray-400',
+      'bg-white',
+      'shadow-red-yellow',
+      'hover:bg-blue-100',
+      'transition',
+      'transform',
+      "hover:scale-105"
     );
 
     const postImage = post.media?.url
