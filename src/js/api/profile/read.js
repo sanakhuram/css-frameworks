@@ -1,3 +1,4 @@
+import { showAlert } from "../../utilities/alert.js";
 import { API_SOCIAL_PROFILES } from "../constants.js";
 import { headers } from "../headers.js";
 import { getAuthToken, validateUsername } from "../utils.js";
@@ -11,7 +12,7 @@ import { getAuthToken, validateUsername } from "../utils.js";
 export async function fetchProfile(username) {
   const token = getAuthToken();
   if (!token) {
-    alert("Authentication token is missing. Redirecting to login...");
+    showAlert("Authentication token is missing. Redirecting to login...","error");
     window.location.href = "/auth/login";
     return;
   }
@@ -27,7 +28,7 @@ export async function fetchProfile(username) {
 
   if (!response.ok) {
     if (response.status === 401) {
-      alert("Unauthorized. Redirecting to login...");
+      showAlert("Unauthorized. Redirecting to login...","error");
       window.location.href = "/auth/login";
       return;
     }

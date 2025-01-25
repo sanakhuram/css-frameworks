@@ -1,3 +1,4 @@
+import { showAlert } from "../../utilities/alert.js";
 import { API_SOCIAL_PROFILES } from "../constants.js";
 import { headers } from "../headers.js";
 import { onFollowToggle } from "./follow.js";
@@ -81,7 +82,7 @@ import { onFollowToggle } from "./follow.js";
         followButton.textContent = newFollowStatus ? "Unfollow" : "Follow";
         isFollowing = newFollowStatus;
       } catch {
-        alert("Failed to update follow status. Please try again.");
+        showAlert("Failed to update follow status. Please try again.","error");
       } finally {
         followButton.disabled = false;
       }

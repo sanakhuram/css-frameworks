@@ -10,12 +10,16 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "jest-localstorage-mock": "^2.4.26",
+    "postcss": "^8.4.49",
     "prettier": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "vite": "^5.4.11",
     "vitest": "^2.1.3"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.1.1",
     "node-localstorage": "^3.0.5"
   }
 }
