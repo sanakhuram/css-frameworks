@@ -1,4 +1,5 @@
 import { register } from "../../api/auth/register";
+import { showAlert } from "../../utilities/alert";
 
 /**
  * Handles the registration form submission.
@@ -16,23 +17,39 @@ export async function onRegister(event) {
   const registerButton = form.querySelector("button[type='submit']");
 
   if (errorMessage) errorMessage.style.display = "none";
+  registerButton.disabled = true;
+  registerButton.textContent = "Registering...";
+
+  if (!name || !email || !password) {
+    showAlert("All fields are required!", "warning");
+    registerButton.disabled = false;
+    registerButton.textContent = "Register";
+    return;
+  }
 
   try {
     const data = await register({ name, email, password });
 
-    alert("Registration successful! Redirecting to the login page...");
-    window.location.href = "/auth/login/";
+    showAlert("Registration successful! Redirecting...", "success");
+
+    setTimeout(() => {
+      window.location.href = "/auth/login/";
+    }, 2000);
   } catch (error) {
     console.error("Registration error:", error);
 
+    const errorMsg =
+      error?.message || "Something went wrong. Please try again.";
+
     if (errorMessage) {
-      errorMessage.innerText = `Registration failed: ${error.message}`;
+      errorMessage.innerText = `Registration failed: ${errorMsg}`;
       errorMessage.style.display = "block";
     } else {
-      alert(`Registration failed: ${error.message}`);
+      showAlert(`Registration failed: ${errorMsg}`, "error");
     }
   } finally {
     registerButton.disabled = false;
+    registerButton.textContent = "Register";
   }
 }
 
