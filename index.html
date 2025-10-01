@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="icon"
       type="image/png"
@@ -23,144 +22,94 @@
       rel="stylesheet"
     />
   </head>
-  <body
-    class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans"
-  >
-    <div
-      id="alertContainer"
-      class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"
-    ></div>
-  <header class="w-full bg-darkBlue flex justify-between items-center px-4 py-3 shadow-md">
-    <a href="/" class="flex items-center">
-      <img src="/images/logo1.gif" alt="Social Media App logo" class="h-16 sm:h-20 w-auto" />
-    </a>
-    
-    <button id="themeToggle" class="bg-yellow-400 text-black dark:bg-gray-800 dark:text-white p-2 rounded-full shadow-md transition-all">
-      <i id="themeIcon" class="fas fa-sun text-lg"></i>
-    </button>
-  </header>
-    <section
-      class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow"
-    >
-      <div
-        class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-4 gap-4"
-      >
-<nav class="flex gap-6 text-sm md:text-base">
-  <a href="/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
-    <i class="fas fa-home text-lg"></i>
-    <span class="text-xs sm:text-sm md:block hidden">Home</span>
-  </a>
-  <a href="/profile/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
-    <i class="fas fa-user text-lg"></i>
-    <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
-  </a>
-  <a href="/auth/login/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
-    <i class="fas fa-sign-in-alt text-lg"></i>
-    <span class="text-xs sm:text-sm md:block hidden">Login</span>
-  </a>
-  <button id="logoutBtn" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
-    <i class="fas fa-sign-out-alt text-lg"></i>
-    <span class="text-xs sm:text-sm md:block hidden">Logout</span>
-  </button>
-</nav>
-<div>
-    <a
- href="/post/create/"
-            class="bg-red text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
-          >
+  <body class="bg-lightGray dark:bg-darkBlue text-darkBlue dark:text-lightBlue font-sans">
+    <div id="alertContainer" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full px-4"></div>
+
+    <header class="w-full bg-darkBlue flex justify-between items-center px-4  shadow-md">
+      <a href="/" class="flex items-center">
+        <img src="/images/logo1.gif" alt="Social Media App logo" class="h-16 sm:h-20 w-auto" />
+      </a>
+<button id="themeToggle" class="p-2 rounded-full transition-all">
+  <i id="themeIcon" class="fas fa-sun text-yellow-400 dark:text-white text-lg"></i>
+</button>
+
+    </header>
+
+    <section class="w-full bg-darkBlue dark:bg-lightBlue text-lightGray shadow-red-glow">
+      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-2 gap-4">
+        <nav class="flex gap-6 text-sm md:text-base">
+          <a href="/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
+            <i class="fas fa-home text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Home</span>
+          </a>
+          <a href="/profile/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
+            <i class="fas fa-user text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">My Profile</span>
+          </a>
+          <a href="/auth/login/" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
+            <i class="fas fa-sign-in-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Login</span>
+          </a>
+          <button id="logoutBtn" class="nav-link flex flex-col items-center gap-1 hover:text-yellow-400">
+            <i class="fas fa-sign-out-alt text-lg"></i>
+            <span class="text-xs sm:text-sm md:block hidden">Logout</span>
+          </button>
+        </nav>
+        <div>
+          <a href="/post/create/" class="bg-red-400 text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-xl hover:bg-darkRed flex items-center gap-2 shadow-soft-dark">
             <i class="fas fa-pencil-alt"></i>
-            <span>Create Post</span>
           </a>
         </div>
       </div>
     </section>
 
-    <main class="mt-10 max-w-5xl mx-auto px-4">
-      
-      <div class="bg-white p-8 rounded-lg dark:bg-lightBlue shadow-red-yellow">
-            <h1 class="text-2xl font-bold text-darkBlue text-center my-10">Posts</h1>
-      <section class="flex flex-wrap gap-4 items-center mb-8">
-  <label
-          for="sortOrder"
-          class="font-semibold text-darkBlue flex items-center gap-2"
-        >
-          <i class="fas fa-sort"></i> Order:
-        </label>
-        <select
-          id="sortOrder"
-          class="border border-lightBlue rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-red focus:border-red shadow-soft-dark"
-        >
-          <option value="desc">Newest</option>
-          <option value="asc">Oldest</option>
-        </select>
-        <button
-          id="applySort"
-          class="bg-yellow-500 text-lightGray py-2 px-4 sm:py-1 sm:px-2 text-sm md:text-base rounded-md hover:bg-darkRed flex items-center gap-2 shadow-soft-dark"
-        >
-          <i class="fas fa-filter"></i> Apply
-        </button>
-      </section>
-<section class="flex flex-wrap gap-4 items-center mb-8 w-full">
-  <label
-    for="searchQuery"
-    class="font-semibold text-darkBlue flex items-center gap-2"
-    ><i class="fa-solid fa-magnifying-glass"></i>Search Posts:</label
-  >
-  <input
-    id="searchQuery"
-    type="text"
-    placeholder="Search by title or body..."
-    class="border border-lightBlue rounded-md p-2 w-full sm:w-auto flex-grow focus:outline-none focus:ring-1 focus:ring-red focus:border-red shadow-soft-dark dark:shadow-lightBlue min-w-0"
-  />
-  <button
-    id="searchButton"
-    class="bg-red text-lightGray py-2 px-4 rounded-md hover:bg-yellow-500 shadow-soft-dark dark:shadow-lightBlue w-full sm:w-auto"
-  >
-    Search
-  </button>
+    <main class="mt-10 w-full max-w-[95%] mx-auto">
+      <div class="bg-white p-4 rounded-lg dark:bg-lightBlue shadow-red-yellow">
+        <!-- Heading -->
+        <h1 class="text-2xl font-bold text-darkBlue text-center my-4 mb-10">Latest Posts on Sociogram</h1>
+
+      <section class="flex items-center gap-2 mb-4 w-full">
+  <label for="searchQuery" class="font-semibold text-darkBlue flex items-center gap-2">
+    <i class="fa-solid fa-magnifying-glass"></i> Search:
+  </label>
+  <div class="flex flex-1 gap-2 min-w-0">
+    <input
+      id="searchQuery"
+      type="text"
+      placeholder="Search by title or body..."
+      class="border border-gray-300 dark:border-gray-600 rounded-md mb-4 p-2 w-full flex-grow focus:outline-none focus:ring-2 focus:ring-red focus:border-red shadow-sm dark:bg-darkBlue dark:text-lightBlue"
+    />
+    <button
+      id="searchButton"
+      class="bg-red text-lightGray mb-4 hover:bg-yellow-500 px-4 py-2 rounded-md shadow-md dark:shadow-none transition-colors"
+    >
+      Search
+    </button>
+  </div>
 </section>
 
 
-      <div id="spinner" class="flex justify-center items-center">
-        <img
-          src="/images/loader.png"
-          alt="Loading animation"
-          class="animate-writing w-12 h-12"
-        />
-      </div>
+        <!-- Spinner -->
+        <div id="spinner" class="flex justify-center items-center">
+          <img src="/images/loader.png" alt="Loading animation" class="animate-writing w-12 h-12"/>
+        </div>
 
-      <section
-        id="postFeed"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      ></section>
-      <nav
-        id="pagination"
-        class="pagination-controls"
-        aria-label="Pagination"
-      ></nav>
+        <!-- Post Grid -->
+        <section id="postFeed" class="grid gap-4 grid-cols-[repeat(auto-fill,minmax(250px,1fr))] w-full"></section>
+
+        <!-- Pagination -->
+        <nav id="pagination" class="pagination-controls mt-4" aria-label="Pagination"></nav>
       </div>
     </main>
-    <a
-      href="#top"
-      id="backToTopBtn"
-      title="back to top"
-      class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all"
-      aria-label="Back to Top"
-    >
+
+    <a href="#top" id="backToTopBtn" title="back to top" class="fixed bottom-4 right-4 bg-red text-lightGray p-3 rounded-full shadow-lg hover:bg-darkRed transition-all" aria-label="Back to Top">
       <i class="fas fa-arrow-up"></i>
     </a>
-    <footer
-      class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue"
-    >
+
+    <footer class="w-full bg-darkBlue text-lightGray py-4 mt-10 font-sans text-sm dark:bg-lightBlue">
       <div class="max-w-5xl mx-auto text-center">
         &copy; 2025 Social Media App by
-        <a
-          href="https://github.com/sanakhuram"
-          target="_blank"
-          class="text-red hover:underline"
-        >
-          Sana Khuram🐞
-        </a>
+        <a href="https://github.com/sanakhuram" target="_blank" class="text-red hover:underline">Sana Khuram🐞</a>
       </div>
     </footer>
   </body>
