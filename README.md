@@ -1,6 +1,8 @@
 # **📱 SOCIOGRAM - CSS Frameworks Assignment**
 
 ### **🚀 Built with Tailwind CSS**
+![Screenshot_7-10-2025_103613_uxfol io](https://github.com/user-attachments/assets/c70d2d4a-608c-4b58-b47c-4fd8cb1e09a8)
+
 
 ## **📌 Overview**
 
