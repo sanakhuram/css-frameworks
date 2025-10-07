@@ -1,5 +1,5 @@
-import { API_SOCIAL_POSTS } from "../../api/constants.js";
-import { headers } from "../../api/headers.js";
+import { API_SOCIAL_POSTS } from '../../api/constants.js';
+import { headers } from '../../api/headers.js';
 
 /**
  * Posts a comment to a specific post by its ID.
@@ -12,9 +12,9 @@ import { headers } from "../../api/headers.js";
  */
 export async function postComment(postId, body, replyToId = null) {
   const response = await fetch(`${API_SOCIAL_POSTS}/${postId}/comment`, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({ body, replyToId }),
-    headers: headers("application/json"),
+    headers: headers('application/json'),
   });
 
   if (response.ok) {
@@ -38,9 +38,9 @@ export async function toggleReaction(postId, symbol) {
     const response = await fetch(
       `${API_SOCIAL_POSTS}/${postId}/react/${encodeURIComponent(symbol)}`,
       {
-        method: "PUT",
+        method: 'PUT',
         headers: headers(),
-      },
+      }
     );
 
     if (!response.ok) {

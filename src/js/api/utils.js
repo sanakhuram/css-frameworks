@@ -6,7 +6,7 @@
 export function isValidUrl(url) {
   try {
     const parsedUrl = new URL(url);
-    return parsedUrl.protocol === "http:" || parsedUrl.protocol === "https:";
+    return parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:';
   } catch (error) {
     return false;
   }
@@ -18,9 +18,9 @@ export function isValidUrl(url) {
  * @throws {Error} - If the token is missing.
  */
 export function getAuthToken() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   if (!token) {
-    throw new Error("User is not authenticated. Token is missing.");
+    throw new Error('User is not authenticated. Token is missing.');
   }
   return token;
 }
@@ -32,6 +32,6 @@ export function getAuthToken() {
  */
 export function validateUsername(username) {
   if (!username) {
-    throw new Error("Username is required for this operation.");
+    throw new Error('Username is required for this operation.');
   }
 }

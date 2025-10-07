@@ -1,6 +1,6 @@
-import { updatePost } from "../../api/post/update.js";
-import { getPostById } from "../../api/post/get.js";
-import { showAlert } from "../../utilities/alert.js";
+import { updatePost } from '../../api/post/update.js';
+import { getPostById } from '../../api/post/get.js';
+import { showAlert } from '../../utilities/alert.js';
 
 /**
  * Utility function to get form field value with optional trimming and fallback.
@@ -8,7 +8,7 @@ import { showAlert } from "../../utilities/alert.js";
  * @returns {string} The trimmed value of the field or an empty string if not found.
  */
 function getFormFieldValue(fieldId) {
-  return document.getElementById(fieldId)?.value.trim() || "";
+  return document.getElementById(fieldId)?.value.trim() || '';
 }
 
 /**
@@ -20,15 +20,13 @@ export async function loadPostData(postId) {
     const postData = await getPostById(postId);
     const data = postData.data || postData;
 
-    document.getElementById("editPostTitleForm").value = data.title || "";
-    document.getElementById("editPostContentForm").value = data.body || "";
-    document.getElementById("editImageURL").value = data.media?.url || "";
-    document.getElementById("editImageAltText").value = data.media?.alt || "";
-    document.getElementById("editTagsInput").value = (data.tags || []).join(
-      ", ",
-    );
+    document.getElementById('editPostTitleForm').value = data.title || '';
+    document.getElementById('editPostContentForm').value = data.body || '';
+    document.getElementById('editImageURL').value = data.media?.url || '';
+    document.getElementById('editImageAltText').value = data.media?.alt || '';
+    document.getElementById('editTagsInput').value = (data.tags || []).join(', ');
   } catch {
-    showAlert("Could not load the post data for editing.", "error");
+    showAlert('Could not load the post data for editing.', 'error');
   }
 }
 
@@ -41,21 +39,21 @@ export async function onUpdatePost(event) {
 
   const postId = event.target.dataset.postId;
   if (!postId) {
-    showAlert("Failed to update post: Missing post ID", "error");
+    showAlert('Failed to update post: Missing post ID', 'error');
     return;
   }
 
   const postData = {
-    title: getFormFieldValue("editPostTitleForm"),
-    body: getFormFieldValue("editPostContentForm"),
-    media: getFormFieldValue("editImageURL")
+    title: getFormFieldValue('editPostTitleForm'),
+    body: getFormFieldValue('editPostContentForm'),
+    media: getFormFieldValue('editImageURL')
       ? {
-        url: getFormFieldValue("editImageURL"),
-        alt: getFormFieldValue("editImageAltText"),
-      }
+          url: getFormFieldValue('editImageURL'),
+          alt: getFormFieldValue('editImageAltText'),
+        }
       : undefined,
-    tags: getFormFieldValue("editTagsInput")
-      .split(",")
+    tags: getFormFieldValue('editTagsInput')
+      .split(',')
       .map((tag) => tag.trim())
       .filter(Boolean),
   };
@@ -63,17 +61,13 @@ export async function onUpdatePost(event) {
   try {
     const updatedPost = await updatePost(postId, postData);
     if (updatedPost) {
-      showAlert("Post updated successfully!", "success");
- 
+      showAlert('Post updated successfully!', 'success');
+
       setTimeout(() => {
         window.location.href = `/post/?id=${postId}`;
-      }, 2000); 
+      }, 2000);
     }
   } catch (error) {
-    showAlert(
-      "Failed to update post: " + (error.message || "Unknown error"),
-      "error"
-    );
+    showAlert('Failed to update post: ' + (error.message || 'Unknown error'), 'error');
   }
-
 }

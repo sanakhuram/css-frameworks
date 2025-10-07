@@ -1,6 +1,6 @@
-import { API_SOCIAL_PROFILES } from "../constants.js";
-import { headers } from "../headers.js";
-import { getAuthToken } from "../utils.js";
+import { API_SOCIAL_PROFILES } from '../constants.js';
+import { headers } from '../headers.js';
+import { getAuthToken } from '../utils.js';
 
 /**
  * Sends a request to follow a user.
@@ -13,13 +13,13 @@ export async function followUser(username) {
   const url = `${API_SOCIAL_PROFILES}/${username}/follow`;
 
   const response = await fetch(url, {
-    method: "PUT",
+    method: 'PUT',
     headers: headers(true, token),
   });
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.message || "Failed to follow the user.");
+    throw new Error(errorData.message || 'Failed to follow the user.');
   }
 
   return true;
@@ -36,13 +36,13 @@ export async function unfollowUser(username) {
   const url = `${API_SOCIAL_PROFILES}/${username}/unfollow`;
 
   const response = await fetch(url, {
-    method: "PUT",
+    method: 'PUT',
     headers: headers(true, token),
   });
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.message || "Failed to unfollow the user.");
+    throw new Error(errorData.message || 'Failed to unfollow the user.');
   }
 
   return false;
@@ -55,7 +55,5 @@ export async function unfollowUser(username) {
  * @returns {Promise<boolean>} - Resolves to true if now following, otherwise false.
  */
 export async function onFollowToggle(username, isCurrentlyFollowing) {
-  return isCurrentlyFollowing
-    ? await unfollowUser(username)
-    : await followUser(username);
+  return isCurrentlyFollowing ? await unfollowUser(username) : await followUser(username);
 }

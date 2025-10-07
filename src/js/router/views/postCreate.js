@@ -1,13 +1,13 @@
-import { onCreatePost } from "../../ui/post/create.js";
-import { authGuard } from "../../utilities/authGuard.js";
+import { onCreatePost } from '../../ui/post/create.js';
+import { authGuard } from '../../utilities/authGuard.js';
 
 authGuard();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("createPostForm");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('createPostForm');
   if (form) {
-    form.addEventListener("submit", onCreatePost);
+    form.addEventListener('submit', onCreatePost);
   } else {
-    console.error("Create post form not found");
+    console.error('Create post form not found');
   }
 });

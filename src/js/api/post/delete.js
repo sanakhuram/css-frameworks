@@ -1,6 +1,6 @@
-import { getToken } from "../../utilities/token.js";
-import { API_KEY, API_SOCIAL_POSTS } from "../constants.js";
-import { headers } from "../headers.js";
+import { getToken } from '../../utilities/token.js';
+import { API_KEY, API_SOCIAL_POSTS } from '../constants.js';
+import { headers } from '../headers.js';
 
 /**
  * Deletes a post by ID from the API.
@@ -13,19 +13,17 @@ export async function deletePost(id) {
   try {
     const token = getToken();
     const response = await fetch(apiUrl, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
         ...headers(),
         Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": API_KEY,
+        'X-Noroff-API-Key': API_KEY,
       },
     });
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(
-        errorData.message || `Failed to delete post with ID: ${id}`,
-      );
+      throw new Error(errorData.message || `Failed to delete post with ID: ${id}`);
     }
 
     return { success: true };

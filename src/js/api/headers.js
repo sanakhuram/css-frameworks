@@ -1,5 +1,5 @@
-import { API_KEY } from "./constants.js";
-import { getToken } from "../utilities/token.js";
+import { API_KEY } from './constants.js';
+import { getToken } from '../utilities/token.js';
 
 /**
  * Generates headers for API requests, including Content-Type, Authorization, and X-Noroff-API-Key.
@@ -12,15 +12,15 @@ export function headers(hasBody = false) {
   const token = getToken();
 
   if (!token) {
-    window.location.href = "/auth/login/";
-    throw new Error("Authorization token is missing.");
+    window.location.href = '/auth/login/';
+    throw new Error('Authorization token is missing.');
   }
 
-  headers.append("Authorization", `Bearer ${token}`);
-  headers.append("X-Noroff-API-Key", API_KEY);
+  headers.append('Authorization', `Bearer ${token}`);
+  headers.append('X-Noroff-API-Key', API_KEY);
 
   if (hasBody) {
-    headers.append("Content-Type", "application/json");
+    headers.append('Content-Type', 'application/json');
   }
 
   return headers;

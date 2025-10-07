@@ -1,4 +1,4 @@
-import { API_AUTH_REGISTER } from "../constants";
+import { API_AUTH_REGISTER } from '../constants';
 
 /**
  * Registers a new user by sending their details to the authentication API.
@@ -13,8 +13,8 @@ import { API_AUTH_REGISTER } from "../constants";
 export async function register({ name, email, password }) {
   try {
     const response = await fetch(API_AUTH_REGISTER, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
     });
 
@@ -23,9 +23,9 @@ export async function register({ name, email, password }) {
     }
 
     const errorData = await response.json();
-    throw new Error(errorData.message || "Registration failed");
+    throw new Error(errorData.message || 'Registration failed');
   } catch (error) {
-    console.error("Error during register API call:", error);
+    console.error('Error during register API call:', error);
     throw error;
   }
 }

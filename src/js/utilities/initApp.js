@@ -1,20 +1,17 @@
 // src/init.js
 
-import { logout } from "../api/auth.js";
-import { onLogin } from "../ui/auth/login.js";
-import { onRegister } from "../ui/auth/register.js";
-import {
-  initializeProfilePage,
-  onUpdateProfile,
-} from "../ui/profile/update.js";
-import { onCreatePost } from "../ui/post/create.js";
-import { renderPosts } from "../ui/post/renderPost.js";
-import { renderSinglePost } from "../ui/post/renderSinglePost.js";
-import { loadPostData, onUpdatePost } from "../ui/post/update.js";
-import { renderUserProfile } from "../ui/profile/userProfile.js";
-import { showSpinner, hideSpinner } from "../utilities/spinner.js";
-import { initializeThemeToggle } from "../utilities/theme";
-import { showAlert } from "./alert.js";
+import { logout } from '../api/auth.js';
+import { onLogin } from '../ui/auth/login.js';
+import { onRegister } from '../ui/auth/register.js';
+import { initializeProfilePage, onUpdateProfile } from '../ui/profile/update.js';
+import { onCreatePost } from '../ui/post/create.js';
+import { renderPosts } from '../ui/post/renderPost.js';
+import { renderSinglePost } from '../ui/post/renderSinglePost.js';
+import { loadPostData, onUpdatePost } from '../ui/post/update.js';
+import { renderUserProfile } from '../ui/profile/userProfile.js';
+import { showSpinner, hideSpinner } from '../utilities/spinner.js';
+import { initializeThemeToggle } from '../utilities/theme';
+import { showAlert } from './alert.js';
 
 /**
  * Utility function to safely attach event listeners.
@@ -52,10 +49,7 @@ export async function initializeApp() {
         updateProfileForm.addEventListener('submit', onUpdateProfile);
       } catch (error) {
         console.error('Error initializing profile page:', error);
-        showAlert(
-          'Error loading profile data. Please try again later.',
-          'error'
-        );
+        showAlert('Error loading profile data. Please try again later.', 'error');
       }
       hideSpinner();
     }
@@ -81,10 +75,7 @@ export async function initializeApp() {
         await renderUserProfile();
       } catch (error) {
         console.error('Error rendering user profile:', error);
-        showAlert(
-          'Error rendering user profile. Please try again later.',
-          'error'
-        );
+        showAlert('Error rendering user profile. Please try again later.', 'error');
       }
       hideSpinner();
     }
@@ -114,10 +105,7 @@ export async function initializeApp() {
           editPostForm.addEventListener('submit', onUpdatePost);
         } catch (error) {
           console.error('Error loading post data for editing:', error);
-          showAlert(
-            'Error loading post data for editing. Please try again.',
-            'error'
-          );
+          showAlert('Error loading post data for editing. Please try again.', 'error');
         }
         hideSpinner();
       } else {
@@ -147,25 +135,16 @@ export async function initializeApp() {
     hideSpinner();
   } catch (error) {
     console.error('Error initializing application:', error);
-    showAlert(
-      'An error occurred while initializing the application. Please try again.',
-      'error'
-    );
+    showAlert('An error occurred while initializing the application. Please try again.', 'error');
     hideSpinner();
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-link').forEach((link) => {
-    const linkPathname = new URL(
-      link.getAttribute('href'),
-      window.location.origin
-    ).pathname;
+    const linkPathname = new URL(link.getAttribute('href'), window.location.origin).pathname;
 
     if (window.location.pathname === linkPathname) {
-      link.classList.add(
-        'text-yellow-400',
-        'font-bold'
-      );
+      link.classList.add('text-yellow-400', 'font-bold');
 
       const icon = link.querySelector('i');
       if (icon) {
@@ -174,4 +153,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-

@@ -1,5 +1,5 @@
-import { API_SOCIAL_POSTS } from "../../api/constants.js";
-import { headers } from "../../api/headers.js";
+import { API_SOCIAL_POSTS } from '../../api/constants.js';
+import { headers } from '../../api/headers.js';
 
 /**
  * Fetches posts from the API, with support for searching by title or body.
@@ -16,9 +16,9 @@ import { headers } from "../../api/headers.js";
 export async function readPosts(
   limit = 12,
   page = 1,
-  query = "",
-  sort = "created",
-  sortOrder = "desc",
+  query = '',
+  sort = 'created',
+  sortOrder = 'desc'
 ) {
   const queryParams = new URLSearchParams({
     _author: true,
@@ -35,12 +35,12 @@ export async function readPosts(
 
   try {
     const response = await fetch(`${endpoint}?${queryParams.toString()}`, {
-      method: "GET",
+      method: 'GET',
       headers: headers(),
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch posts");
+      throw new Error('Failed to fetch posts');
     }
 
     return await response.json();

@@ -34,12 +34,7 @@ export function showAlert(message, type = 'info', duration = 3000) {
       alertDiv.classList.add('bg-red', 'border', 'border-darkRed');
       break;
     case 'warning':
-      alertDiv.classList.add(
-        'bg-yellow-500',
-        'border',
-        'border-yellow-700',
-        'text-black'
-      );
+      alertDiv.classList.add('bg-yellow-500', 'border', 'border-yellow-700', 'text-black');
       break;
     default:
       alertDiv.classList.add('bg-blue-500', 'border', 'border-blue-700');

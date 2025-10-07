@@ -1,6 +1,6 @@
-import { getToken } from "../../utilities/token.js";
-import { API_KEY, API_SOCIAL_POSTS } from "../../api/constants.js";
-import { headers } from "../../api/headers.js";
+import { getToken } from '../../utilities/token.js';
+import { API_KEY, API_SOCIAL_POSTS } from '../../api/constants.js';
+import { headers } from '../../api/headers.js';
 
 /**
  * Updates a post by its ID.
@@ -20,7 +20,7 @@ import { headers } from "../../api/headers.js";
 export async function updatePost(id, { title, body, tags, media }) {
   const token = getToken();
   if (!token) {
-    throw new Error("User is not authenticated. Missing token.");
+    throw new Error('User is not authenticated. Missing token.');
   }
 
   const postData = {
@@ -32,12 +32,12 @@ export async function updatePost(id, { title, body, tags, media }) {
 
   try {
     const response = await fetch(`${API_SOCIAL_POSTS}/${id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
         ...headers(),
         Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": API_KEY,
-        "Content-Type": "application/json",
+        'X-Noroff-API-Key': API_KEY,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(postData),
     });
@@ -45,9 +45,7 @@ export async function updatePost(id, { title, body, tags, media }) {
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        `Failed to update post: ${
-          errorData.errors?.[0]?.message || response.statusText
-        }`,
+        `Failed to update post: ${errorData.errors?.[0]?.message || response.statusText}`
       );
     }
 

@@ -6,9 +6,7 @@ import { showAlert, showConfirmAlert } from '../../utilities/alert.js';
  * @param {string} postId - The ID of the post to delete
  */
 export async function handleDeletePost(postId) {
-  const confirmed = await showConfirmAlert(
-    'Are you sure you want to delete this post?'
-  );
+  const confirmed = await showConfirmAlert('Are you sure you want to delete this post?');
 
   if (!confirmed) return;
 
@@ -22,9 +20,6 @@ export async function handleDeletePost(postId) {
       showAlert(`Failed to delete post: ${result.message}`, 'error');
     }
   } catch {
-    showAlert(
-      'An error occurred while trying to delete the post. Please try again.',
-      'error'
-    );
+    showAlert('An error occurred while trying to delete the post. Please try again.', 'error');
   }
 }

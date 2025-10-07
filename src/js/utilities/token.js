@@ -3,7 +3,7 @@
  * @returns {string|null} The token if it exists, or null if it doesn't.
  */
 export function getToken() {
-  return localStorage.getItem("token");
+  return localStorage.getItem('token');
 }
 
 /**
@@ -11,12 +11,12 @@ export function getToken() {
  * @param {string} token - The token to be stored.
  */
 export function setToken(token) {
-  localStorage.setItem("token", token);
+  localStorage.setItem('token', token);
 }
 
 /**
  * Clears the token from localStorage.
  */
 export function clearToken() {
-  localStorage.removeItem("token");
+  localStorage.removeItem('token');
 }

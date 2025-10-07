@@ -1,4 +1,4 @@
-import { readPosts } from "../../api/post/read.js";
+import { readPosts } from '../../api/post/read.js';
 
 /**
  * Renders a paginated list of posts on the page.
@@ -8,14 +8,9 @@ import { readPosts } from "../../api/post/read.js";
  * @param {string} [sort="created"] - The field by which posts should be sorted.
  * @param {string} [sortOrder="desc"] - The order in which posts should be sorted (ascending or descending).
  */
-export async function renderPosts(
-  page = 1,
-  sort = "created",
-  sortOrder = "desc",
-  query = "",
-) {
-  const postFeed = document.getElementById("postFeed");
-  const paginationContainer = document.getElementById("pagination");
+export async function renderPosts(page = 1, sort = 'created', sortOrder = 'desc', query = '') {
+  const postFeed = document.getElementById('postFeed');
+  const paginationContainer = document.getElementById('pagination');
 
   postFeed.innerHTML = `
     <div class="flex justify-center items-center py-4">
@@ -24,13 +19,7 @@ export async function renderPosts(
   `;
 
   try {
-    const { data: postsData, meta } = await readPosts(
-      12,
-      page,
-      query,
-      sort,
-      sortOrder,
-    );
+    const { data: postsData, meta } = await readPosts(12, page, query, sort, sortOrder);
 
     if (postsData?.length) {
       const postsHTML = postsData
@@ -68,20 +57,20 @@ export async function renderPosts(
         page,
         sort,
         sortOrder,
-        query,
+        query
       );
     } else {
       postFeed.innerHTML = `
         <p class="text-center text-gray-600 mt-4">No posts match your search criteria.</p>
       `;
-      paginationContainer.innerHTML = "";
+      paginationContainer.innerHTML = '';
     }
   } catch (error) {
-    console.error("Error rendering posts:", error);
+    console.error('Error rendering posts:', error);
     postFeed.innerHTML = `
       <p class="text-center text-red-500 mt-4">An error occurred while loading posts.</p>
     `;
-    paginationContainer.innerHTML = "";
+    paginationContainer.innerHTML = '';
   }
 }
 
@@ -93,20 +82,20 @@ export async function renderPosts(
  * @param {string} sort - The field by which posts are sorted.
  * @param {string} sortOrder - The order in which posts are sorted (ascending or descending).
  */
-function renderPagination(totalPages, page, sort, sortOrder, query = "") {
-  const paginationContainer = document.getElementById("pagination");
+function renderPagination(totalPages, page, sort, sortOrder, query = '') {
+  const paginationContainer = document.getElementById('pagination');
 
   let paginationHTML = `
     <div class="flex justify-center items-center space-x-2 mt-4">
       <button id="prevPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
-        page <= 1 ? "opacity-50 cursor-not-allowed" : ""
-      }" ${page <= 1 ? "disabled" : ""}>
+        page <= 1 ? 'opacity-50 cursor-not-allowed' : ''
+      }" ${page <= 1 ? 'disabled' : ''}>
         Previous
       </button>
       <span class="text-gray-700 dark:text-white">Page ${page} of ${totalPages}</span>
       <button id="nextPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
-        page >= totalPages ? "opacity-50 cursor-not-allowed" : ""
-      }" ${page >= totalPages ? "disabled" : ""}>
+        page >= totalPages ? 'opacity-50 cursor-not-allowed' : ''
+      }" ${page >= totalPages ? 'disabled' : ''}>
         Next
       </button>
     </div>
@@ -114,11 +103,11 @@ function renderPagination(totalPages, page, sort, sortOrder, query = "") {
 
   paginationContainer.innerHTML = paginationHTML;
 
-  document.getElementById("prevPage")?.addEventListener("click", () => {
+  document.getElementById('prevPage')?.addEventListener('click', () => {
     renderPosts(page - 1, sort, sortOrder, query);
   });
 
-  document.getElementById("nextPage")?.addEventListener("click", () => {
+  document.getElementById('nextPage')?.addEventListener('click', () => {
     renderPosts(page + 1, sort, sortOrder, query);
   });
 }

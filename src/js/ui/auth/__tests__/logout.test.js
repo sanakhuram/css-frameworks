@@ -1,7 +1,7 @@
-import { onLogout } from "../logout";
-import { describe, test, expect, beforeEach, vi } from "vitest";
+import { onLogout } from '../logout';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
 
-describe("onLogout", () => {
+describe('onLogout', () => {
   beforeEach(() => {
     const localStorageMock = (() => {
       let store = {};
@@ -13,15 +13,15 @@ describe("onLogout", () => {
       };
     })();
 
-    Object.defineProperty(global, "localStorage", {
+    Object.defineProperty(global, 'localStorage', {
       value: localStorageMock,
     });
-    localStorage.setItem("token", "mockedToken");
+    localStorage.setItem('token', 'mockedToken');
   });
 
-  test("removes token from localStorage", () => {
-    expect(localStorage.getItem("token")).toBe("mockedToken");
+  test('removes token from localStorage', () => {
+    expect(localStorage.getItem('token')).toBe('mockedToken');
     onLogout();
-    expect(localStorage.getItem("token")).toBeFalsy();
+    expect(localStorage.getItem('token')).toBeFalsy();
   });
 });
