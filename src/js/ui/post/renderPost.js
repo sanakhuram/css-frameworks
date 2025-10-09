@@ -8,15 +8,9 @@ import { readPosts } from '../../api/post/read.js';
  * @param {string} [sortOrder="desc"] - Sort order.
  * @param {string} [query=""] - Optional search query.
  */
-<<<<<<< HEAD
-export async function renderPosts(page = 1, sort = 'created', sortOrder = 'desc', query = '') {
-  const postFeed = document.getElementById('postFeed');
-  const paginationContainer = document.getElementById('pagination');
-=======
 export async function renderPosts(page = 1, sort = "created", sortOrder = "desc", query = "") {
   const postFeed = document.getElementById("postFeed");
   const paginationContainer = document.getElementById("pagination");
->>>>>>> 3b696dc (✨ Update Post Cards & Layout | Search, Sort, Pagination, and Technical Improvements)
 
   // Loading spinner
   postFeed.innerHTML = `
@@ -26,53 +20,6 @@ export async function renderPosts(page = 1, sort = "created", sortOrder = "desc"
   `;
 
   try {
-<<<<<<< HEAD
-    const { data: postsData, meta } = await readPosts(12, page, query, sort, sortOrder);
-
-    if (postsData?.length) {
-      const postsHTML = postsData
-        .map(
-          (post) => `
-      <a href="/post/?id=${post.id}" class="block bg-white rounded-lg border border-gray-300 shadow-red-yellow hover:bg-slate-300 transition-all transform hover:scale-105 overflow-hidden  ">
-        <article id="post-${post.id}" class="p-4 h-full flex flex-col ">
-          <div class="mb-4">
-            <h2 class="text-lg font-bold text-darkBlue truncate">${post.title || 'Untitled'}</h2>
-            <p class="text-sm text-gray-600 mt-2 line-clamp-2">${post.body || 'No content available'}</p>
-          </div>
-              <img
-                src="${
-                  post.media?.url && isValidImage(post.media.url)
-                    ? post.media.url
-                    : '/images/placeholder.jpg'
-                }"
-                alt="${post.media?.alt || 'Post Image'}"
-                onerror="this.src='/images/placeholder.jpg';"
-                class="mt-4 w-full h-40 object-cover rounded-md"
-              >
-              <p class="mt-2 text-sm text-gray-500">
-                Tags: ${post.tags?.join(', ') || 'No tags'}
-              </p>
-            </article>
-          </a>
-        `
-        )
-        .join('');
-
-      postFeed.innerHTML = postsHTML;
-
-      renderPagination(
-        meta.totalPages || Math.ceil(meta.totalCount / 12),
-        page,
-        sort,
-        sortOrder,
-        query
-      );
-    } else {
-      postFeed.innerHTML = `
-        <p class="text-center text-gray-600 mt-4">No posts match your search criteria.</p>
-      `;
-      paginationContainer.innerHTML = '';
-=======
     const { data: postsData, meta } = await readPosts(
       16,
       page,
@@ -88,7 +35,6 @@ export async function renderPosts(page = 1, sort = "created", sortOrder = "desc"
       postFeed.innerHTML = `<p class="text-center text-gray-600 mt-4">No posts match your search criteria.</p>`;
       paginationContainer.innerHTML = "";
       return;
->>>>>>> 3b696dc (✨ Update Post Cards & Layout | Search, Sort, Pagination, and Technical Improvements)
     }
 
     // Flexible grid for 4+ cards per row
@@ -138,17 +84,9 @@ export async function renderPosts(page = 1, sort = "created", sortOrder = "desc"
     renderPagination(meta.totalPages || Math.ceil(meta.totalCount / 16), page, sort, sortOrder, query);
 
   } catch (error) {
-<<<<<<< HEAD
-    console.error('Error rendering posts:', error);
-    postFeed.innerHTML = `
-      <p class="text-center text-red-500 mt-4">An error occurred while loading posts.</p>
-    `;
-    paginationContainer.innerHTML = '';
-=======
     console.error("Error rendering posts:", error);
     postFeed.innerHTML = `<p class="text-center text-red-500 mt-4">An error occurred while loading posts.</p>`;
     paginationContainer.innerHTML = "";
->>>>>>> 3b696dc (✨ Update Post Cards & Layout | Search, Sort, Pagination, and Technical Improvements)
   }
 }
 
@@ -160,25 +98,6 @@ function renderPagination(totalPages, page, sort, sortOrder, query = '') {
 
   paginationContainer.innerHTML = `
     <div class="flex justify-center items-center space-x-2 mt-4">
-<<<<<<< HEAD
-      <button id="prevPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
-        page <= 1 ? 'opacity-50 cursor-not-allowed' : ''
-      }" ${page <= 1 ? 'disabled' : ''}>
-        Previous
-      </button>
-      <span class="text-gray-700 dark:text-white">Page ${page} of ${totalPages}</span>
-      <button id="nextPage" class="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${
-        page >= totalPages ? 'opacity-50 cursor-not-allowed' : ''
-      }" ${page >= totalPages ? 'disabled' : ''}>
-        Next
-      </button>
-    </div>
-  `;
-
-  paginationContainer.innerHTML = paginationHTML;
-
-  document.getElementById('prevPage')?.addEventListener('click', () => {
-=======
       <button id="prevPage" class="px-3 py-1 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${page <= 1 ? "opacity-50 cursor-not-allowed" : ""}" ${page <= 1 ? "disabled" : ""}>Previous</button>
       <span class="text-gray-700 dark:text-white text-sm">Page ${page} of ${totalPages}</span>
       <button id="nextPage" class="px-3 py-1 text-white bg-gray-500 rounded-md hover:bg-gray-600 ${page >= totalPages ? "opacity-50 cursor-not-allowed" : ""}" ${page >= totalPages ? "disabled" : ""}>Next</button>
@@ -186,7 +105,6 @@ function renderPagination(totalPages, page, sort, sortOrder, query = '') {
   `;
 
   document.getElementById("prevPage")?.addEventListener("click", () => {
->>>>>>> 3b696dc (✨ Update Post Cards & Layout | Search, Sort, Pagination, and Technical Improvements)
     renderPosts(page - 1, sort, sortOrder, query);
   });
 
